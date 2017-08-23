@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
+import Categories from './Categories'
 import { getAllCategories, getAllPostsForCategory } from '../utils/ReadableAPI'
 import '../App.css'
 
-const categories = ['react', 'redux', 'udacity']
-
 class App extends Component {
   
-  componentDidMount() {
-    getAllCategories();
-    getAllPostsForCategory('udacity');
+  state = {
+    categories: [],
+    loading: false
+  }
+
+  componentDidMount() {  
+    getAllCategories()
+      .then(categories => {
+        const items = categories.map(item => item.name)
+        this.setState({
+          categories: items,
+          loading: true
+        })
+      })
   }
 
   render() {
+    const { categories, loading } = this.state
     return(
       <div>
-        <ul>
-          {categories.map(item => <li>{item}</li>)}
-        </ul>
+        {loading 
+        ? (<Categories categories={categories} />)
+        : (<div>loading...</div>)
+        }
       </div>
     )
   }

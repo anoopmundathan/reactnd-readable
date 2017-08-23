@@ -14,7 +14,7 @@ const headers = {
 // GET /categories
 // Get all categories available
 export const getAllCategories = () => {
-  fetch(`${api}/categories`, { headers })
+  return fetch(`${api}/categories`, { headers })
     .then(response => response.json())
     .then(data => data.categories)
 }
