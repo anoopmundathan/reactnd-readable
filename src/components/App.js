@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import Categories from './Categories'
+import CategoryView from './CategoryView'
+
 import { getAllCategories, getAllPostsForCategory } from '../utils/ReadableAPI'
 import '../App.css'
 
@@ -7,7 +10,7 @@ class App extends Component {
   
   state = {
     categories: [],
-    loading: false
+    screen: 'list'
   }
 
   componentDidMount() {  
@@ -21,14 +24,21 @@ class App extends Component {
       })
   }
 
+  
   render() {
-    const { categories, loading } = this.state
+    const { categories, screen } = this.state
     return(
       <div>
-        {loading 
-        ? (<Categories categories={categories} />)
-        : (<div>loading...</div>)
-        }
+        <Route exact path='/' render={() => (
+          <Categories 
+            categories={categories} 
+            onNavigate={() => {
+              this.setState({
+                screen: 'view'
+              })
+            }}/>
+        )} />
+        <Route path='/view' component={CategoryView} />
       </div>
     )
   }
