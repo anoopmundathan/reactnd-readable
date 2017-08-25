@@ -25,3 +25,8 @@ export const getAllPostsForCategory = (category) => {
     .then(response => response.json())
     .then(data => data)
 }
+
+export const getAllPosts = () => {
+  return fetch(`${api}/posts`, { headers })
+    .then(response => response.json())
+}

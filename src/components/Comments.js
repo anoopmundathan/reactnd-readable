@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class CategoryView extends Component {
+class Comments extends Component {
   render() {
     return(
       <div>
-        CategoryView
+        Comments View
       </div>
     )
   }
 }
 
-export default CategoryView
+export default Comments
