@@ -14,13 +14,13 @@ class App extends Component {
     return(
       <div>
         <div>
+          <Link to='/'>Posts</Link>
           <Link to='/categories'>Categories</Link>
-          <Link to='/posts'>Posts</Link>
           <Link to='/comments'>Comments</Link>
         </div>
-          <Route path ='/posts' component={Posts} />
-          <Route path ='/comments' component={Comments} />
+          <Route exact path ='/' component={Posts} />
           <Route path ='/categories' component={Categories} />
+          <Route path ='/comments' component={Comments} />
       </div>
     )
   }

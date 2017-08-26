@@ -23,6 +23,10 @@
   to { transform: rotate(360deg); }
 }
 
+.Post {
+  display: flex;
+}
+
 ul {
   list-style: none;
 }

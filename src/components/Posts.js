@@ -18,7 +18,7 @@ class Posts extends Component {
 
   render() {
     const { posts } = this.state
-    const postList = posts.map(post => <li>{post.body}</li>)
+    const postList = posts.map(post => (<li><Post post={post} /></li>))
     return(
       <div>
         <ul>
@@ -28,5 +28,28 @@ class Posts extends Component {
     )
   }
 }
+
+const Post = (props) => {
+  const { title, author, voteScore} = props.post
+  return(
+    <div className="Post">
+      <Title title={title} />
+      <Author author={author} />
+      <Comments />
+      <Points point={voteScore}/>
+      <Vote />
+      <Edit />
+      <Delete />
+    </div>
+  )
+}
+const Title = (props) => <div>{props.title}</div>
+const Author = (props) => <div>{props.author}</div>
+const Comments = () => <div>Comments</div>
+const Points = (props) => <div>{props.point}</div>
+const Vote = () => <div>Vote</div>
+const Edit = () => <div>Edit</div>
+const Delete = () => <div>Delete</div>
+
 
 export default Posts
