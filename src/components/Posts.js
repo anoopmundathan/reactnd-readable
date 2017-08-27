@@ -1,23 +1,15 @@
 import React, { Component } from 'react'
-import { getAllPosts } from '../utils/ReadableAPI'
+import { connect } from 'react-redux'
+import { fetchPosts } from '../actions'
 
 class Posts extends Component {
 
-  state = {
-    posts: []
-  }
-
   componentDidMount() {
-    getAllPosts()
-      .then(data => {
-        this.setState({
-          posts: data
-        })
-      })
+    this.props.getPosts()
   }
 
   render() {
-    const { posts } = this.state
+    const { posts } = this.props
     const postList = posts.map(post => (<li><Post post={post} /></li>))
     return(
       <div>
@@ -27,6 +19,7 @@ class Posts extends Component {
       </div>
     )
   }
+
 }
 
 const Post = (props) => {
@@ -51,5 +44,16 @@ const Vote = () => <div>Vote</div>
 const Edit = () => <div>Edit</div>
 const Delete = () => <div>Delete</div>
 
+const mapStateToProps = (state) => {
+  return {
+    posts: state.post
+  }
+}
 
-export default Posts
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: (data) => dispatch(fetchPosts(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts)
