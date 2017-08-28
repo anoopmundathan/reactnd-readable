@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom'
 
+import Header from './Header'
 import Categories from './Categories'
 import Posts from './Posts'
 import Comments from './Comments'
@@ -12,6 +13,7 @@ class App extends Component {
   render() {
     return(
       <div>
+        <Header />
         <div>
           <Link to='/'>Posts</Link>
           <Link to='/categories'>Categories</Link>

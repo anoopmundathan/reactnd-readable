@@ -27,6 +27,16 @@
   display: flex;
 }
 
+.header {
+  padding: 1em;
+  background: #f23456;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 ul {
   list-style: none;
 }

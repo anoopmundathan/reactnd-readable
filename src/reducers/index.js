@@ -11,3 +11,4 @@ const post = (state = { post: [] }, action) => {
 }
 
 export default post
+

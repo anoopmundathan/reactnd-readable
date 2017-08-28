@@ -9,14 +9,14 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
-import postReducer from './reducers'
+import reducer from './reducers'
 import './index.css'
 
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker'
 
 const middleware = applyMiddleware(thunk, createLogger())
-const store = createStore(postReducer, middleware)
+const store = createStore(reducer, middleware)
 
 ReactDOM.render(
 <Provider store={store}>
