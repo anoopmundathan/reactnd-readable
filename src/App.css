@@ -23,6 +23,10 @@
   text-decoration: none;
 }
 
+.active {
+  color: #ff6200;
+}
+
 ul {
   list-style: none;
 }
