@@ -12,7 +12,7 @@ class Posts extends Component {
     const { posts } = this.props
     const postList = posts.map(post => (<li><Post post={post} /></li>))
     return(
-      <div>
+      <div className="Posts">
         <ul>
           {postList}
         </ul>
@@ -26,23 +26,27 @@ const Post = (props) => {
   const { title, author, voteScore} = props.post
   return(
     <div className="Post">
-      <Title title={title} />
-      <Author author={author} />
-      <Comments />
-      <Points point={voteScore}/>
-      <Vote />
-      <Edit />
-      <Delete />
+      <div className="Title">
+        <Title title={title} />
+      </div>
+      <div className="Post-Info">
+        <Author author={author} />
+        <Comments />
+        <Points point={voteScore}/>
+        <Vote />
+        <Edit />
+        <Delete />
+      </div>
     </div>
   )
 }
-const Title = (props) => <div>{props.title}</div>
-const Author = (props) => <div>{props.author}</div>
-const Comments = () => <div>Comments</div>
-const Points = (props) => <div>{props.point}</div>
-const Vote = () => <div>Vote</div>
-const Edit = () => <div>Edit</div>
-const Delete = () => <div>Delete</div>
+const Title = (props) => <div className="Title">{props.title}</div>
+const Author = (props) => <div className="Author">{props.author}</div>
+const Comments = () => <div className="Comments">comments</div>
+const Points = (props) => <div className="Points">{props.point}</div>
+const Vote = () => <div className="Vote">vote</div>
+const Edit = () => <div className="Edit">edit</div>
+const Delete = () => <div className="Delete">delete</div>
 
 const mapStateToProps = (state) => {
   return {

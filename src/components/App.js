@@ -13,12 +13,14 @@ class App extends Component {
 
   render() {
     return(
-      <div>
+      <div className="App">
         <Header />
-        <Nav />
-        <Route exact path ='/' component={Posts} />
-        <Route path ='/categories' component={Categories} />
-        <Route path ='/comments' component={Comments} />
+        <div className="Container">
+          <Nav />
+          <Route exact path ='/' component={Posts} />
+          <Route path ='/categories' component={Categories} />
+          <Route path ='/comments' component={Comments} />
+        </div>
       </div>
     )
   }
