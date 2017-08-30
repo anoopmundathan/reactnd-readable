@@ -10,6 +10,7 @@ class Posts extends Component {
 
   render() {
     const { posts } = this.props
+    console.log(this.props)
     const postList = posts.map(post => (<li><Post post={post} /></li>))
     return(
       <div className="Posts">
@@ -48,9 +49,9 @@ const Vote = () => <div className="Vote">vote</div>
 const Edit = () => <div className="Edit">edit</div>
 const Delete = () => <div className="Delete">delete</div>
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ post }) => {
   return {
-    posts: state.post
+    posts: post.post
   }
 }
 

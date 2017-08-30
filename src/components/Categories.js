@@ -1,23 +1,17 @@
 import React, { Component } from 'react'
-import { getAllCategories } from '../utils/ReadableAPI'
+import { connect } from 'react-redux'
+import { fetchCategories } from '../actions'
 
 class Categories extends Component {
   
-  state = {
-    categories: []
-  }
-
   componentDidMount() {  
-    getAllCategories()
-      .then(categories => {
-        const items = categories.map(item => item.name)
-        this.setState({ categories: items })
-      })
+    this.props.getCategories()
   }
 
   render() {    
-    const { categories } = this.state
-    const list = categories.map((item, index) => <li key={index}>{item}</li>)
+    const { categories } = this.props
+    const list = categories.map((item, index) => <li key={index}>{item.name}</li>)
+    
     return(
       <div>
         <ul>
@@ -28,4 +22,16 @@ class Categories extends Component {
   }
 }
 
-export default Categories
+const mapStateToProps = ({ category }) => {
+  return {
+    categories: category.category
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCategories: (data) => dispatch(fetchCategories(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories)
