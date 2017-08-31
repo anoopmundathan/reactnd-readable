@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import Header from './Header'
 import Nav from './Nav'
 import Categories from './Categories'
-import Posts from './Posts'
+import Posts from './Posts/'
 import Comments from './Comments'
 
 import '../App.css'

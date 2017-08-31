@@ -55,6 +55,10 @@
   color: #8A8585;
 }
 
+.Title {
+  cursor: pointer;
+}
+
 .Comments,
 .Points,
 .Vote,
@@ -68,7 +72,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 ul {
   list-style: none;
