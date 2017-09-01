@@ -7,6 +7,12 @@ const post = (state = { post: [] }, action) => {
         ...state,
         post: action.posts
       }
+      break
+    case 'DELETE_POST':
+      const removePostList = [
+        ...state.post.slice(0, action.index),
+        ...state.post.slice(action.index + 1)
+      ]
     default:
       return state
   }

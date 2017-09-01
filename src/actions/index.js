@@ -2,6 +2,12 @@ import { getAllPosts, getAllCategories } from '../utils/ReadableAPI'
 
 export const GET_POSTS = 'GET_POSTS'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
+export const DELETE_POST = 'DELETE_POST'
+
+export const deletePost = (index) => ({
+  type: DELETE_POST,
+  index
+})
 
 export const getCategories = (categories) => ({
     type: GET_CATEGORIES,

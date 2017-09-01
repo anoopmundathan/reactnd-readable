@@ -55,7 +55,8 @@
   color: #8A8585;
 }
 
-.Title {
+.Title,
+.Delete {
   cursor: pointer;
 }
 
@@ -67,6 +68,7 @@
   margin: 0 6px;
   padding: 0;
 }
+
 
 .Author {
   margin: 0;

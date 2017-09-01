@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { deletePost } from '../../actions'
+
 import { Title } from './Title'
 import { Author } from './Author'
 import { Comments } from './Comments'
@@ -7,7 +10,7 @@ import { Vote } from './Vote'
 import { Edit } from './Edit'
 import { Delete } from './Delete'
 
-export class Post extends Component {
+class Post extends Component {
   state = {
     postClick: false
   }
@@ -16,6 +19,10 @@ export class Post extends Component {
     this.setState({
       postClick: !this.state.postClick
     })
+  }
+
+  onDeleteClick = () => {
+    console.log('Delete')
   }
 
   render() {
@@ -38,9 +45,18 @@ export class Post extends Component {
           <Points point={voteScore}/>
           <Vote />
           <Edit />
-          <Delete />
+          <Delete 
+            onDeleteClick={this.onDeleteClick}/>
         </div>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (data) => dispatch(deletePost(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Post)
