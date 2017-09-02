@@ -26,7 +26,16 @@ export const getAllPostsForCategory = (category) => {
     .then(data => data)
 }
 
+// GET /posts
 export const getAllPosts = () => {
   return fetch(`${api}/posts`, { headers })
     .then(response => response.json())
+}
+
+// DELETE /posts/:id
+export const deletePost = (id) => {
+  return fetch(`${api}/posts/${id}`, { 
+    method: 'DELETE',
+    headers 
+  })
 }

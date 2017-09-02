@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deletePost } from '../../actions'
+import { deletePostAction } from '../../actions'
 
 import { Title } from './Title'
 import { Author } from './Author'
@@ -22,7 +22,6 @@ class Post extends Component {
   }
 
   onDeleteClick = (id) => {
-    console.log(id)
     this.props.deletePost(id)
   }
 
@@ -57,7 +56,7 @@ class Post extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deletePost: (data) => dispatch(deletePost(data))
+    deletePost: (id) => dispatch(deletePostAction(id))
   }
 }
 

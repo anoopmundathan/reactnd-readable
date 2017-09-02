@@ -12,7 +12,8 @@ class Posts extends Component {
 
   render() {
     const { posts } = this.props
-    const postList = posts.map(post => (<li><Post post={post} /></li>))
+    const postList = posts.filter(post => !post.deleted)
+                      .map(post => (<li><Post post={post} /></li>))
     return(
       <div className="Posts">
         <ul>

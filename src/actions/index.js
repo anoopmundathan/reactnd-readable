@@ -1,13 +1,21 @@
-import { getAllPosts, getAllCategories } from '../utils/ReadableAPI'
+import { 
+  getAllPosts, 
+  getAllCategories,
+  deletePost
+} from '../utils/ReadableAPI'
 
 export const GET_POSTS = 'GET_POSTS'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
-export const DELETE_POST = 'DELETE_POST'
 
-export const deletePost = (id) => ({
-  type: DELETE_POST,
-  id
-})
+export const deletePostAction = (id) => dispatch => (
+  deletePost(id)
+    .then(() => {
+      dispatch({
+        type: 'DELETE_POST',
+        id
+      })
+    })
+)
 
 export const getCategories = (categories) => ({
     type: GET_CATEGORIES,
