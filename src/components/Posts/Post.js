@@ -21,12 +21,13 @@ class Post extends Component {
     })
   }
 
-  onDeleteClick = () => {
-    console.log('Delete')
+  onDeleteClick = (id) => {
+    console.log(id)
+    this.props.deletePost(id)
   }
 
   render() {
-    const {body, title, author, voteScore } = this.props.post
+    const {body, title, author, voteScore, id } = this.props.post
 
     return(  
       <div className="Post">
@@ -46,6 +47,7 @@ class Post extends Component {
           <Vote />
           <Edit />
           <Delete 
+            id={id}
             onDeleteClick={this.onDeleteClick}/>
         </div>
       </div>

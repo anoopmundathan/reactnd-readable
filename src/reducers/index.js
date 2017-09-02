@@ -7,12 +7,13 @@ const post = (state = { post: [] }, action) => {
         ...state,
         post: action.posts
       }
-      break
     case 'DELETE_POST':
-      const removePostList = [
-        ...state.post.slice(0, action.index),
-        ...state.post.slice(action.index + 1)
-      ]
+      const currentPost = [...state.post]
+      const indexToDelete = currentPost.findIndex(post => post.id === action.id)
+      return {
+        post: [...currentPost.slice(0, indexToDelete), 
+        ...currentPost.slice(indexToDelete + 1)]
+      }
     default:
       return state
   }
@@ -35,5 +36,4 @@ export default combineReducers({
   category
 })
 
-// export default post
 

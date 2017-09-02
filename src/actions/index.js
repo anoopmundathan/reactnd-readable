@@ -4,9 +4,9 @@ export const GET_POSTS = 'GET_POSTS'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const DELETE_POST = 'DELETE_POST'
 
-export const deletePost = (index) => ({
+export const deletePost = (id) => ({
   type: DELETE_POST,
-  index
+  id
 })
 
 export const getCategories = (categories) => ({
