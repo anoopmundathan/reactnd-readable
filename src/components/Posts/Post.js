@@ -6,7 +6,7 @@ import { Title } from './Title'
 import { Author } from './Author'
 import { Comments } from './Comments'
 import { Points } from './Points'
-import { Vote } from './Vote'
+import Vote from './Vote'
 import { Edit } from './Edit'
 import { Delete } from './Delete'
 
@@ -43,7 +43,7 @@ class Post extends Component {
           <Author author={author} />
           <Comments />
           <Points point={voteScore}/>
-          <Vote />
+          <Vote id={id}/>
           <Edit />
           <Delete 
             id={id}

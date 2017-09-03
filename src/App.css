@@ -56,7 +56,9 @@
 }
 
 .Title,
-.Delete {
+.Delete,
+.Up,
+.Down {
   cursor: pointer;
 }
 
@@ -69,6 +71,27 @@
   padding: 0;
 }
 
+.Vote {
+  width: 40px;
+  display: flex;
+  padding-top: 2px;
+}
+
+.Up {
+  width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #CAC6C6;
+}
+
+.Down {
+  width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #CAC6C6;
+}
 
 .Author {
   margin: 0;
