@@ -1,21 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { upVoteAction } from '../../actions' 
 
-class Vote extends Component {
-  onClickUpVote = () => {
-    this.props.upVote(this.props.id)
-  }
-
-  onClickDownVote = () => {
-    
-  }
+export class Vote extends Component {
 
   render() {
     return(
       <div className="Vote">
-        <Up onClickUpVote={this.onClickUpVote}/>
-        <Down onClickDownVote={this.onClickDownVote}/>
+        <Up {...this.props} />
+        <Down />
       </div>
     )
   }
@@ -25,7 +16,7 @@ const Up = (props) => {
   return(
     <div 
       className="Up"
-      onClick={props.onClickUpVote}>
+      onClick={() => props.onClickUpVote(props.id)}>
     </div>
   )
 }
@@ -33,16 +24,7 @@ const Up = (props) => {
 const Down = (props) => {
   return(
     <div 
-      className="Down"
-      onClick={props.onClickDownVote}>
+      className="Down">
     </div>
   )
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    upVote: (id) => dispatch(upVoteAction(id))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Vote)

@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deletePostAction } from '../../actions'
+import { deletePostAction, upVoteAction } from '../../actions'
 
 import { Title } from './Title'
 import { Author } from './Author'
 import { Comments } from './Comments'
 import { Points } from './Points'
-import Vote from './Vote'
+import { Vote } from './Vote'
 import { Edit } from './Edit'
 import { Delete } from './Delete'
 
 class Post extends Component {
   state = {
-    postClick: false
+    postClick: false,
+    score: 0
   }
 
   onPostClick = () => {
@@ -25,8 +26,23 @@ class Post extends Component {
     this.props.deletePost(id)
   }
 
+  onClickUpVote = (id) => {
+    this.props.upVote(id)
+    this.setState({
+      score: this.state.score + 1
+    })
+  }
+
+  componentDidMount() {
+    const { voteScore } = this.props.post
+    this.setState({
+      score: voteScore
+    })
+  }
+
   render() {
-    const {body, title, author, voteScore, id } = this.props.post
+    const { body, title, author, id } = this.props.post
+    const { score } = this.state
 
     return(  
       <div className="Post">
@@ -42,12 +58,10 @@ class Post extends Component {
         <div className="Post-Info">
           <Author author={author} />
           <Comments />
-          <Points point={voteScore}/>
-          <Vote id={id}/>
+          <Points point={score} />
+          <Vote id={id} onClickUpVote={this.onClickUpVote} />
           <Edit />
-          <Delete 
-            id={id}
-            onDeleteClick={this.onDeleteClick}/>
+          <Delete id={id} onDeleteClick={this.onDeleteClick}/>
         </div>
       </div>
     )
@@ -56,7 +70,8 @@ class Post extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deletePost: (id) => dispatch(deletePostAction(id))
+    deletePost: (id) => dispatch(deletePostAction(id)),
+    upVote: (id) => dispatch(upVoteAction(id))
   }
 }
 
