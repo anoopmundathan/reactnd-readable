@@ -6,7 +6,7 @@ export class Vote extends Component {
     return(
       <div className="Vote">
         <Up {...this.props} />
-        <Down />
+        <Down {...this.props} />
       </div>
     )
   }
@@ -24,7 +24,8 @@ const Up = (props) => {
 const Down = (props) => {
   return(
     <div 
-      className="Down">
+      className="Down"
+      onClick={() => props.onClickDownVote(props.id)}>
     </div>
   )
 }

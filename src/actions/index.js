@@ -8,6 +8,16 @@ import {
 export const GET_POSTS = 'GET_POSTS'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 
+export const downVoteAction = (id) => dispatch => (
+  votePost(id, "downVote")
+    .then(() => {
+      dispatch({
+        type: 'DOWN_VOTE',
+        id
+      })
+    })
+)
+
 export const upVoteAction = (id) => dispatch => (
   votePost(id, "upVote")
     .then(() => {

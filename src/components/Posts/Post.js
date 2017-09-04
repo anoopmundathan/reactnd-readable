@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deletePostAction, upVoteAction } from '../../actions'
+import { deletePostAction, upVoteAction, downVoteAction } from '../../actions'
 
 import { Title } from './Title'
 import { Author } from './Author'
@@ -33,6 +33,13 @@ class Post extends Component {
     })
   }
 
+  onClickDownVote = (id) => {
+    this.props.downVote(id)
+    this.setState({
+      score: this.state.score - 1
+    })
+  }
+
   componentDidMount() {
     const { voteScore } = this.props.post
     this.setState({
@@ -59,7 +66,10 @@ class Post extends Component {
           <Author author={author} />
           <Comments />
           <Points point={score} />
-          <Vote id={id} onClickUpVote={this.onClickUpVote} />
+          <Vote 
+            id={id} 
+            onClickDownVote={this.onClickDownVote}
+            onClickUpVote={this.onClickUpVote} />
           <Edit />
           <Delete id={id} onDeleteClick={this.onDeleteClick}/>
         </div>
@@ -71,7 +81,8 @@ class Post extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     deletePost: (id) => dispatch(deletePostAction(id)),
-    upVote: (id) => dispatch(upVoteAction(id))
+    upVote: (id) => dispatch(upVoteAction(id)),
+    downVote: (id) => dispatch(downVoteAction(id))
   }
 }
 

@@ -15,13 +15,19 @@ const post = (state = { post: [] }, action) => {
         ...currentPost.slice(indexToDelete + 1)]
       }
     case 'UP_VOTE':
-      const currentPostVote = [...state.post]
-      const index= currentPostVote.findIndex(post => post.id === action.id)
-      currentPostVote[index].voteScore = currentPostVote[index].voteScore + 1
+      const currentPostUpVote = [...state.post]
+      const indexUp= currentPostUpVote.findIndex(post => post.id === action.id)
+      currentPostUpVote[indexUp].voteScore = currentPostUpVote[indexUp].voteScore + 1
       return {
-        post: [...currentPostVote]
+        post: [...currentPostUpVote]
       }
-
+    case 'DOWN_VOTE':
+      const currentPostDownVote = [...state.post]
+      const indexDown= currentPostDownVote.findIndex(post => post.id === action.id)
+      currentPostDownVote[indexDown].voteScore = currentPostDownVote[indexDown].voteScore - 1
+      return {
+        post: [...currentPostDownVote]
+      }
     default:
       return state
   }
