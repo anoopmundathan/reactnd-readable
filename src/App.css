@@ -4,8 +4,9 @@
 }
 
 .Container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  display: flex;
 }
 
 /* Header component */
@@ -24,19 +25,12 @@
   border-radius: 3px;
 }
 
-/* Nav Component */
-.Nav {
-  padding: 1em;
-  text-align: center;
-}
-
-.Nav a {
-  padding: 1em;
-  text-decoration: none;
-}
-
-.active {
-  color: #FA4D6D;
+.Side-Nav {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 100vh;
+  background: #3A3A5C;
 }
 
 /* Posts component */
@@ -100,6 +94,16 @@
 
 ul {
   list-style: none;
+}
+
+.Categories-List {
+  margin: 0;
+  padding: 0;
+}
+.Categories-List li {
+  color: #D2BCBC;
+  padding: 10px;
+  border-bottom: 1px solid;
 }
 
 @media screen and (min-width: 600px) {

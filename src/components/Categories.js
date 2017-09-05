@@ -13,8 +13,8 @@ class Categories extends Component {
     const list = categories.map((item, index) => <li key={index}>{item.name}</li>)
     
     return(
-      <div>
-        <ul>
+      <div className="Categories">
+        <ul className="Categories-List">
           {list}
         </ul>
       </div>

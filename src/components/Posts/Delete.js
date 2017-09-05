@@ -5,7 +5,7 @@ export const Delete = (props) => {
     <div
       onClick={() => props.onDeleteClick(props.id)} 
       className="Delete">
-      Delete
+      delete
     </div>
   )
 }
