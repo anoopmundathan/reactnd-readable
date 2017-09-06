@@ -100,10 +100,15 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 .Categories-List li {
   color: #D2BCBC;
   padding: 10px;
   border-bottom: 1px solid;
+}
+
+.Category {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {

@@ -21,7 +21,7 @@ export const getAllCategories = () => {
 
 // GET /:categories/posts
 export const getAllPostsForCategory = (category) => {
-  fetch(`${api}/${category}/posts`, { headers })
+  return fetch(`${api}/${category}/posts`, { headers })
     .then(response => response.json())
     .then(data => data)
 }

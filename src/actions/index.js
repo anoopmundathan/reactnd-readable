@@ -2,11 +2,22 @@ import {
   getAllPosts, 
   getAllCategories,
   deletePost,
-  votePost
+  votePost,
+  getAllPostsForCategory
 } from '../utils/ReadableAPI'
 
 export const GET_POSTS = 'GET_POSTS'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
+
+export const getAllPostsCategoryAction = (category) => dispatch => (
+  getAllPostsForCategory(category)
+    .then((posts) => {
+      dispatch({
+        type: 'GET_POST_CATEGORY',
+        posts
+      })
+    })
+)
 
 export const downVoteAction = (id) => dispatch => (
   votePost(id, "downVote")

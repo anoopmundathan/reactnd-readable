@@ -28,6 +28,11 @@ const post = (state = { post: [] }, action) => {
       return {
         post: [...currentPostDownVote]
       }
+    case 'GET_POST_CATEGORY':
+      return {
+        ...state,
+        post: action.posts
+      }
     default:
       return state
   }
