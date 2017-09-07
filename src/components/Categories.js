@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { 
   fetchCategories,
@@ -21,9 +22,7 @@ class Categories extends Component {
     const list = categories.map((item, index) => {
       return (
         <li key={index}>
-          <Category
-            onCategoryClick={this.onCategoryClick} 
-            name={item.name}/>
+          <Link to={`/${item.name}`}>{item.name}</Link>
         </li>
       )
     })

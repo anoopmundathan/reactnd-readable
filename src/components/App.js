@@ -18,6 +18,7 @@ class App extends Component {
           <SideNav />
           <Route exact path ='/' component={Posts} />
           <Route path ='/comments' component={Comments} />
+          <Route path ='/:category' component={Posts} />
         </div>
       </div>
     )
