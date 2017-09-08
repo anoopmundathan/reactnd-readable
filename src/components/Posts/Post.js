@@ -12,14 +12,7 @@ import { Delete } from './Delete'
 
 class Post extends Component {
   state = {
-    postClick: false,
     score: 0
-  }
-
-  onPostClick = () => {
-    this.setState({
-      postClick: !this.state.postClick
-    })
   }
 
   onDeleteClick = (id) => {
@@ -53,15 +46,8 @@ class Post extends Component {
 
     return(  
       <div className="Post">
-        {!this.state.postClick
-        ? (<div className="Title">
-            <Title onPostClick={this.onPostClick} content={title} />
-          </div>)
-        : (<div className="Body">
-            <Title onPostClick={this.onPostClick} content={body} />
-          </div>)
-        }
-
+        <Title 
+          post={this.props.post} />
         <div className="Post-Info">
           <Author author={author} />
           <Comments />

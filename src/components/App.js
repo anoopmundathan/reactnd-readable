@@ -18,11 +18,14 @@ class App extends Component {
           <SideNav />
           <Route exact path ='/' component={Posts} />
           <Route path ='/comments' component={Comments} />
-          <Route path ='/:category' component={Posts} />
+          <Route exact path ='/:category' component={Posts} />
+          <Route exact path ='/:category/:id' component={Test} />
         </div>
       </div>
     )
   }
 }
+
+const Test = () => <div>Test</div>
 
 export default App
