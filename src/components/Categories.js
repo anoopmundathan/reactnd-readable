@@ -1,20 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { 
-  fetchCategories,
-  getAllPostsCategoryAction 
-} from '../actions'
-
+import { fetchCategories } from '../actions'
 
 class Categories extends Component {
   
   componentDidMount() {  
     this.props.getCategories()
-  }
-
-  onCategoryClick = (category) => {
-    this.props.getAllPostsCategory(category)
   }
 
   render() {    
@@ -30,6 +22,7 @@ class Categories extends Component {
     return(
       <div className="Categories">
         <ul className="Categories-List">
+          <All />
           {list}
         </ul>
       </div>
@@ -37,14 +30,11 @@ class Categories extends Component {
   }
 }
 
-const Category = (props) => {
-  const category = props.name
+const All = () => {
   return(
-    <div
-      className="Category" 
-      onClick={() => props.onCategoryClick(category)}>
-      {category}
-    </div>
+    <li key='All'>
+      <Link to='/'>All</Link>
+    </li>
   )
 }
 
@@ -56,8 +46,7 @@ const mapStateToProps = ({ category }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCategories: (data) => dispatch(fetchCategories(data)),
-    getAllPostsCategory: (data) => dispatch(getAllPostsCategoryAction(data))
+    getCategories: (data) => dispatch(fetchCategories(data))
   }
 }
 

@@ -21,12 +21,17 @@ class Posts extends Component {
       }
     })
     .map(post => (<li><Post post={post} /></li>))
-                      
+       
     return(
       <div className="Posts">
-        <ul>
-          {postList}
-        </ul>
+        {postList.length > 0
+        ? (
+          <ul>
+            {postList}
+          </ul>
+        )
+        : (<div>Not Found</div>)
+        }
       </div>
     )
   }
