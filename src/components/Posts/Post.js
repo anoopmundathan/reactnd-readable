@@ -41,9 +41,10 @@ class Post extends Component {
   }
 
   render() {
-    const { body, title, author, id } = this.props.post
-    const { score } = this.state
 
+    const { body, title, author, id } = this.props.post  
+    const { score } = this.state
+    
     return(  
       <div className="Post">
         <Title 

@@ -12,14 +12,13 @@ const headers = {
 }
 
 // GET /categories
-// Get all categories available
 export const getAllCategories = () => {
   return fetch(`${api}/categories`, { headers })
     .then(response => response.json())
     .then(data => data.categories)
 }
 
-// GET /:categories/posts
+// GET /:category/posts
 export const getAllPostsForCategory = (category) => {
   return fetch(`${api}/${category}/posts`, { headers })
     .then(response => response.json())
@@ -32,12 +31,13 @@ export const getAllPosts = () => {
     .then(response => response.json())
 }
 
-// DELETE /posts/:id
-export const deletePost = (id) => {
-  return fetch(`${api}/posts/${id}`, { 
-    method: 'DELETE',
-    headers 
-  })
+// POST /posts
+/* TODO */
+
+// GET /posts/:id
+export const getPost = (id) => {
+  return fetch(`${api}/posts/${id}`, { headers })
+    .then(response => response.json())
 }
 
 // POST /posts/:id
@@ -53,3 +53,12 @@ export const votePost = (id, option) => {
     })
   })
 }
+
+// DELETE /posts/:id
+export const deletePost = (id) => {
+  return fetch(`${api}/posts/${id}`, { 
+    method: 'DELETE',
+    headers 
+  })
+}
+

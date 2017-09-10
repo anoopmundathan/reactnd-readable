@@ -68,4 +68,3 @@ export const fetchPosts = () => dispatch => (
   getAllPosts()
       .then(posts => dispatch(getPosts(posts)))
 )
-
