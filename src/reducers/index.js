@@ -1,49 +1,64 @@
 import { combineReducers } from 'redux'
 
-const post = (state = { post: [] }, action) => {
+// For Individual Post
+const post = (state = { post: {} }, action) => {
+  switch(action.type) {
+    case 'GET_POST':
+      return {
+        ...state, 
+        post: action.post
+      }
+    default: 
+      return state
+  }
+}
+
+// For Posts
+const posts = (state = { posts: [] }, action) => {
   switch(action.type) {
     case 'GET_POSTS':
       return {
         ...state,
-        post: action.posts
+        posts: action.posts
       }
     case 'DELETE_POST':
-      const currentPost = [...state.post]
+      const currentPost = [...state.posts]
       const indexToDelete = currentPost.findIndex(post => post.id === action.id)
       return {
-        post: [...currentPost.slice(0, indexToDelete), 
+        posts: [...currentPost.slice(0, indexToDelete), 
         ...currentPost.slice(indexToDelete + 1)]
       }
     case 'UP_VOTE':
-      const currentPostUpVote = [...state.post]
+      const currentPostUpVote = [...state.posts]
       const indexUp= currentPostUpVote.findIndex(post => post.id === action.id)
       currentPostUpVote[indexUp].voteScore = currentPostUpVote[indexUp].voteScore + 1
       return {
-        post: [...currentPostUpVote]
+        posts: [...currentPostUpVote]
       }
     case 'DOWN_VOTE':
-      const currentPostDownVote = [...state.post]
+      const currentPostDownVote = [...state.posts]
       const indexDown= currentPostDownVote.findIndex(post => post.id === action.id)
       currentPostDownVote[indexDown].voteScore = currentPostDownVote[indexDown].voteScore - 1
       return {
-        post: [...currentPostDownVote]
+        posts: [...currentPostDownVote]
       }
     case 'GET_POST_CATEGORY':
       return {
         ...state,
-        post: action.posts
+        posts: action.posts
       }
     default:
       return state
   }
 }
 
-const category = (state = { category: [] }, action) => {
+// For Categories
+const categories = (state = { categories: [] }, action) => {
   switch(action.type) {
     case 'GET_CATEGORIES':
       return {
         ...state,
-        category: action.categories
+        categories: action.categories
       }
     default:
       return state
@@ -52,7 +67,8 @@ const category = (state = { category: [] }, action) => {
 
 export default combineReducers({
   post,
-  category
+  posts,
+  categories
 })
 
 

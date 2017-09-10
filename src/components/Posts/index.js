@@ -39,9 +39,9 @@ class Posts extends Component {
   }
 }
 
-const mapStateToProps = ({ post }) => {
+const mapStateToProps = ({ posts }) => {
   return {
-    posts: post.post
+    posts: posts.posts
   }
 }
 

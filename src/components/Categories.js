@@ -38,9 +38,9 @@ const All = () => {
   )
 }
 
-const mapStateToProps = ({ category }) => {
+const mapStateToProps = ({ categories }) => {
   return {
-    categories: category.category
+    categories: categories.categories
   }
 }
 

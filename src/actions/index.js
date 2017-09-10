@@ -1,4 +1,5 @@
 import { 
+  getPost,
   getAllPosts, 
   getAllCategories,
   deletePost,
@@ -57,6 +58,16 @@ export const getCategories = (categories) => ({
 export const fetchCategories = () => dispatch => (
   getAllCategories()
     .then(categories => dispatch(getCategories(categories)))
+)
+
+export const getPostAction = (id) => dispatch => (
+  getPost(id)
+    .then(post => {
+      dispatch({
+        type: 'GET_POST',
+        post
+      })
+    })
 )
 
 export const getPosts = (posts) => ({

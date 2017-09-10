@@ -1,42 +1,37 @@
 import React, { Component } from 'react'
-import { getPost } from '../utils/ReadableAPI'
+import { connect } from 'react-redux'
+import { getPostAction } from '../actions'
 
 class PostDetail extends Component {
-
-  state = {
-    post: {}
-  }
-
+  
   componentDidMount() {
     const { id } = this.props.match.params
-    
-    getPost(id)
-      .then(data => {
-        const { title, body, author, category, voteScore } = data
-        this.setState({
-          post: {
-            title,
-            body,
-            author,
-            category,
-            voteScore
-          }
-        })
-      })
+    this.props.getPost(id)
   }
 
   render() {
-    const { title, body, author, category, voteScore } = this.state.post
+    const { author, body, category, title } = this.props.post.post
     return(
       <div>
-        <p>{title}</p>
-        <p>{body}</p>
         <p>{author}</p>
+        <p>{body}</p>
         <p>{category}</p>
-        <p>{voteScore}</p>
+        <p>{title}</p>
       </div>
     )
   }
 }
 
-export default PostDetail
+const mapStateToProps = ({ post }) => {
+  return {
+    post: post
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPost: (id) => dispatch(getPostAction(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail)
