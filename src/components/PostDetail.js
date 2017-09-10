@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPostAction } from '../actions'
+import Comments from './Comments'
 
 class PostDetail extends Component {
   
@@ -10,13 +11,16 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { author, body, category, title } = this.props.post.post
+    const { id } = this.props.match.params
+    const { author, body, category, title, voteScore } = this.props.post.post
     return(
       <div>
         <p>{author}</p>
         <p>{body}</p>
         <p>{category}</p>
         <p>{title}</p>
+        <p>{voteScore}</p>
+        <Comments id={id}/>
       </div>
     )
   }
