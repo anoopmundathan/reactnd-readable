@@ -13,25 +13,34 @@ class Posts extends Component {
 
   render() {
     const { posts, match } = this.props
-    const postList = posts.filter(post => {
+    const filteredPosts = posts.filter(post => {
       if(match.params.category) {
         return !post.deleted && post.category === match.params.category
       } else {
         return !post.deleted 
       }
     })
-    .map(post => (<li key={post.id}><Post post={post} /></li>))
-
+    
+    let postList
+    if (filteredPosts.length > 0) {
+      postList = filteredPosts.map(post => (<li key={post.id}><Post post={post} /></li>))
+    }
+    
     return(
       <div className="Posts">
-        {postList.length > 0
+        {filteredPosts.length > 0
+        ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
+        : (<h1>...</h1>)
+        }
+
+        {/* {postList.length > 0
         ? (
           <ul>
             {postList}
           </ul>
         )
         : (<div>Not Found</div>)
-        }
+        } */}
       </div>
     )
   }

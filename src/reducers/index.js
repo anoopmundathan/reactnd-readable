@@ -47,6 +47,13 @@ const posts = (state = { posts: [] }, action) => {
         ...state,
         posts: action.posts
       }
+    case 'GET_COMMENTS':
+      const currentPostComments = [...state.posts]
+      const indexComments= currentPostComments.findIndex(post => post.id === action.id)
+      currentPostComments[indexComments].comments = action.comments
+      return {
+        posts: [...currentPostComments]
+      }
     default:
       return state
   }
@@ -65,23 +72,8 @@ const categories = (state = { categories: [] }, action) => {
   }
 }
 
-// For Comments 
-const comments = (state = { comments: [] }, action) => {
-  switch(action.type) {
-    case 'GET_COMMENTS':
-    return {
-      ...state,
-      comments: action.comments
-    }
-    default: 
-      return state
-  }
-}
-
 export default combineReducers({
   post,
   posts,
-  categories,
-  comments
+  categories
 })
-

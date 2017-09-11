@@ -1,2 +1,12 @@
-import React from 'react'
-export const Comments = () => <div className="Comments">comments</div>
+import React, { Component } from 'react'
+
+export class CommentsCount extends Component {
+  render() {
+    const { count } = this.props
+    return(
+      <div>
+        {count}
+      </div>
+    )
+  }
+}

@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deletePostAction, upVoteAction, downVoteAction } from '../../actions'
+import { 
+  deletePostAction, 
+  upVoteAction, 
+  downVoteAction,
+  getCommentsAction
+ } from '../../actions'
 
 import { Title } from './Title'
 import { Author } from './Author'
-import { Comments } from './Comments'
+import { CommentsCount } from './Comments'
 import { Points } from './Points'
 import { Vote } from './Vote'
 import { Edit } from './Edit'
@@ -34,6 +39,7 @@ class Post extends Component {
   }
 
   componentDidMount() {
+    this.props.getComments(this.props.post.id)
     const { voteScore } = this.props.post
     this.setState({
       score: voteScore
@@ -41,9 +47,11 @@ class Post extends Component {
   }
 
   render() {
-
+    
     const { body, title, author, id } = this.props.post  
     const { score } = this.state
+    const posts = this.props.posts
+    const index= posts.findIndex(post => post.id === id)
     
     return(  
       <div className="Post">
@@ -51,7 +59,12 @@ class Post extends Component {
           post={this.props.post} />
         <div className="Post-Info">
           <Author author={author} />
-          <Comments />
+
+          {posts[index].comments && (
+            <CommentsCount 
+            count={posts[index].comments.length} />
+          )}
+          
           <Points point={score} />
           <Vote 
             id={id} 
@@ -64,13 +77,19 @@ class Post extends Component {
     )
   }
 }
+const mapStateToProps = ({ posts }) => {
+  return {
+    posts: posts.posts
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deletePost: (id) => dispatch(deletePostAction(id)),
     upVote: (id) => dispatch(upVoteAction(id)),
-    downVote: (id) => dispatch(downVoteAction(id))
+    downVote: (id) => dispatch(downVoteAction(id)),
+    getComments: (id) => dispatch(getCommentsAction(id))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

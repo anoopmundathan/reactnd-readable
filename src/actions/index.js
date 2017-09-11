@@ -86,6 +86,7 @@ export const getCommentsAction = (id) => dispatch => (
     .then(comments => {
       dispatch({
         type: 'GET_COMMENTS',
+        id,
         comments
       })
     })
