@@ -9,7 +9,7 @@ import {
 
 import { Title } from './Title'
 import { Author } from './Author'
-import { CommentsCount } from './Comments'
+import { Count } from './Count'
 import { Points } from './Points'
 import { Vote } from './Vote'
 import { Edit } from './Edit'
@@ -52,19 +52,16 @@ class Post extends Component {
     const { score } = this.state
     const posts = this.props.posts
     const index= posts.findIndex(post => post.id === id)
-    
+    const count = posts[index].comments 
+                  ? posts[index].comments.length
+                  : 0
     return(  
       <div className="Post">
         <Title 
           post={this.props.post} />
         <div className="Post-Info">
           <Author author={author} />
-
-          {posts[index].comments && (
-            <CommentsCount 
-            count={posts[index].comments.length} />
-          )}
-          
+          <Count count={count} />
           <Points point={score} />
           <Vote 
             id={id} 

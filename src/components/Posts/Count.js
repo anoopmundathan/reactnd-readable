@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class CommentsCount extends Component {
+export class Count extends Component {
   render() {
     const { count } = this.props
     return(

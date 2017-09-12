@@ -32,15 +32,6 @@ class Posts extends Component {
         ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
         : (<h1>...</h1>)
         }
-
-        {/* {postList.length > 0
-        ? (
-          <ul>
-            {postList}
-          </ul>
-        )
-        : (<div>Not Found</div>)
-        } */}
       </div>
     )
   }

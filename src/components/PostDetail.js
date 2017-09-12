@@ -20,7 +20,7 @@ class PostDetail extends Component {
         <p>{category}</p>
         <p>{title}</p>
         <p>{voteScore}</p>
-        <Comments id={id}/>
+        {/* <Comments id={id}/> */}
       </div>
     )
   }
