@@ -81,13 +81,20 @@ export const fetchPosts = () => dispatch => (
       .then(posts => dispatch(getPosts(posts)))
 )
 
-export const getCommentsAction = (id) => dispatch => (
+export const getCommentsAction = (from = 'posts', id) => dispatch => (
   getComments(id)
     .then(comments => {
-      dispatch({
-        type: 'GET_COMMENTS',
-        id,
-        comments
-      })
+      if(from === 'posts') {
+        dispatch({
+          type: 'GET_COMMENTS',
+          id,
+          comments
+        })
+      } else {
+        dispatch({
+          type: 'GET_POST_COMMENTS',
+          comments
+        })
+      }
     })
 )
