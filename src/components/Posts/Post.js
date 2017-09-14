@@ -39,7 +39,7 @@ class Post extends Component {
   }
 
   componentDidMount() {
-    this.props.getComments(this.props.post.id)
+    this.props.getComments('posts', this.props.post.id)
     const { voteScore } = this.props.post
     this.setState({
       score: voteScore
@@ -85,7 +85,7 @@ const mapDispatchToProps = (dispatch) => {
     deletePost: (id) => dispatch(deletePostAction(id)),
     upVote: (id) => dispatch(upVoteAction(id)),
     downVote: (id) => dispatch(downVoteAction(id)),
-    getComments: (id) => dispatch(getCommentsAction(id))
+    getComments: (from, id) => dispatch(getCommentsAction(from, id))
   }
 }
 
