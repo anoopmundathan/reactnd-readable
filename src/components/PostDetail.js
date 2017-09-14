@@ -14,6 +14,13 @@ class PostDetail extends Component {
   render() {
     const { id } = this.props.match.params
     const { author, body, category, title, voteScore } = this.props.post.post
+    let commentList = null
+    if (this.props.post.post.comments) {
+      commentList = this.props.post.post.comments.map(comment => {
+        return (<li>{comment.body}</li>)
+      })
+    }
+
     return(
       <div>
         <p>{author}</p>
@@ -21,7 +28,7 @@ class PostDetail extends Component {
         <p>{category}</p>
         <p>{title}</p>
         <p>{voteScore}</p>
-        {/* <Comments id={id}/> */}
+        <ul>{commentList}</ul>
       </div>
     )
   }

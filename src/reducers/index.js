@@ -9,13 +9,20 @@ const post = (state = { post: {} }, action) => {
         post: action.post
       }
     case 'GET_POST_COMMENTS':
-      return Object.assign({}, state, { comments: action.comments })
-      // return {
-      //   ...state,
-      //   post: {
+      // return Object.assign(
+      //   {}, 
+      //   state, 
+      //   {
       //     comments: action.comments
       //   }
-      // }
+      // )
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: action.comments
+        }
+      }
     default: 
       return state
   }
