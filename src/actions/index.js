@@ -77,8 +77,20 @@ export const getPosts = (posts) => ({
 })
 
 export const fetchPosts = () => dispatch => (
+
   getAllPosts()
-      .then(posts => dispatch(getPosts(posts)))
+    .then(posts => {
+      posts.map(post => {
+        getComments(post.id)
+          .then(comments => {
+            dispatch({
+              type: 'GET_POSTS',
+              post,
+              comments
+            })
+          })
+      })
+    })
 )
 
 export const getCommentsAction = (from = 'posts', id) => dispatch => (

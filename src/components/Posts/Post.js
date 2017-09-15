@@ -54,7 +54,7 @@ class Post extends Component {
     const index= posts.findIndex(post => post.id === id)
     const count = posts[index].comments 
                   ? posts[index].comments.length
-                  : 0
+                  : '&'
     return(  
       <div className="Post">
         <Title 

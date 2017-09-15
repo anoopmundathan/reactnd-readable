@@ -9,13 +9,6 @@ const post = (state = { post: {} }, action) => {
         post: action.post
       }
     case 'GET_POST_COMMENTS':
-      // return Object.assign(
-      //   {}, 
-      //   state, 
-      //   {
-      //     comments: action.comments
-      //   }
-      // )
       return {
         ...state,
         post: {
@@ -32,9 +25,10 @@ const post = (state = { post: {} }, action) => {
 const posts = (state = { posts: [] }, action) => {
   switch(action.type) {
     case 'GET_POSTS':
+      action.post.comments = action.comments
       return {
         ...state,
-        posts: action.posts
+        posts: [...state.posts, action.post]
       }
     case 'DELETE_POST':
       const currentPost = [...state.posts]
