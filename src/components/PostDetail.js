@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPostAction, getCommentsAction } from '../actions'
-import Comments from './Comments'
+import { fetchPost } from '../actions'
 
 class PostDetail extends Component {
   
   componentDidMount() {
     const { id } = this.props.match.params
     this.props.getPost(id)
-    this.props.getComments('post', id)
   }
 
   render() {
@@ -42,8 +40,7 @@ const mapStateToProps = ({ post }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPost: (id) => dispatch(getPostAction(id)),
-    getComments: (from, id) => dispatch(getCommentsAction(from, id))
+    getPost: (id) => dispatch(fetchPost(id))
   }
 }
 

@@ -61,23 +61,21 @@ export const fetchCategories = () => dispatch => (
     .then(categories => dispatch(getCategories(categories)))
 )
 
-export const getPostAction = (id) => dispatch => (
+export const fetchPost = (id) => dispatch => (
   getPost(id)
     .then(post => {
-      dispatch({
-        type: 'GET_POST',
-        post
-      })
+      getComments(post.id)
+        .then(comments => {
+          dispatch({
+            type: 'GET_POST',
+            post,
+            comments
+          })
+        })
     })
 )
 
-export const getPosts = (posts) => ({
-  type: GET_POSTS,
-  posts
-})
-
 export const fetchPosts = () => dispatch => (
-
   getAllPosts()
     .then(posts => {
       posts.map(post => {
@@ -90,23 +88,5 @@ export const fetchPosts = () => dispatch => (
             })
           })
       })
-    })
-)
-
-export const getCommentsAction = (from = 'posts', id) => dispatch => (
-  getComments(id)
-    .then(comments => {
-      if(from === 'posts') {
-        dispatch({
-          type: 'GET_COMMENTS',
-          id,
-          comments
-        })
-      } else {
-        dispatch({
-          type: 'GET_POST_COMMENTS',
-          comments
-        })
-      }
     })
 )

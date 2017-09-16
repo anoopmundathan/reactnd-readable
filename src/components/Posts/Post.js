@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { 
   deletePostAction, 
   upVoteAction, 
-  downVoteAction,
-  getCommentsAction
+  downVoteAction
  } from '../../actions'
 
 import { Title } from './Title'
@@ -39,7 +38,6 @@ class Post extends Component {
   }
 
   componentDidMount() {
-    this.props.getComments('posts', this.props.post.id)
     const { voteScore } = this.props.post
     this.setState({
       score: voteScore
@@ -84,8 +82,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deletePost: (id) => dispatch(deletePostAction(id)),
     upVote: (id) => dispatch(upVoteAction(id)),
-    downVote: (id) => dispatch(downVoteAction(id)),
-    getComments: (from, id) => dispatch(getCommentsAction(from, id))
+    downVote: (id) => dispatch(downVoteAction(id))
   }
 }
 

@@ -4,17 +4,10 @@ import { combineReducers } from 'redux'
 const post = (state = { post: {} }, action) => {
   switch(action.type) {
     case 'GET_POST':
+      action.post.comments = action.comments
       return {
         ...state, 
         post: action.post
-      }
-    case 'GET_POST_COMMENTS':
-      return {
-        ...state,
-        post: {
-          ...state.post,
-          comments: action.comments
-        }
       }
     default: 
       return state
@@ -55,13 +48,6 @@ const posts = (state = { posts: [] }, action) => {
       return {
         ...state,
         posts: action.posts
-      }
-    case 'GET_COMMENTS':
-      const currentPostComments = [...state.posts]
-      const indexComments= currentPostComments.findIndex(post => post.id === action.id)
-      currentPostComments[indexComments].comments = action.comments
-      return {
-        posts: [...currentPostComments]
       }
     default:
       return state
