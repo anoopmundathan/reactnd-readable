@@ -15,7 +15,7 @@ class PostDetail extends Component {
     let commentList = null
     if (this.props.post.post.comments) {
       commentList = this.props.post.post.comments.map(comment => {
-        return (<li>{comment.body}</li>)
+        return (<li key={comment.id}>{comment.body}</li>)
       })
     }
 

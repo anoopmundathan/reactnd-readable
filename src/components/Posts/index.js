@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPosts } from '../../actions'
+import { fetchPosts, deletePosts } from '../../actions'
 import { Vote } from './Vote'
 
 import Post from './Post'
@@ -8,6 +8,9 @@ import Post from './Post'
 class Posts extends Component {
 
   componentDidMount() {
+    if (this.props.posts.length > 0) {
+      this.props.deletePosts()
+    }
     this.props.getPosts()
   }
 
@@ -45,7 +48,8 @@ const mapStateToProps = ({ posts }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: () => dispatch(fetchPosts())
+    getPosts: () => dispatch(fetchPosts()),
+    deletePosts: () => dispatch(deletePosts())
   }
 }
 

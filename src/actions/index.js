@@ -90,3 +90,7 @@ export const fetchPosts = () => dispatch => (
       })
     })
 )
+
+export const deletePosts = () => ({
+  type: 'DELETE_POSTS'
+})

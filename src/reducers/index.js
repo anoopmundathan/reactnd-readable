@@ -20,9 +20,12 @@ const posts = (state = { posts: [] }, action) => {
     case 'GET_POSTS':
       action.post.comments = action.comments
       return {
-        ...state,
         posts: [...state.posts, action.post]
       }
+    case 'DELETE_POSTS':
+      return {
+        posts: []
+    }
     case 'DELETE_POST':
       const currentPost = [...state.posts]
       const indexToDelete = currentPost.findIndex(post => post.id === action.id)

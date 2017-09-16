@@ -18,7 +18,6 @@ class App extends Component {
         <div className="Container">
           <SideNav />
           <Route exact path ='/' component={Posts} />
-          {/* <Route path ='/comments' component={Comments} /> */}
           <Route exact path ='/:category' component={Posts} />
           <Route exact path ='/:category/:id' component={PostDetail} />
         </div>
