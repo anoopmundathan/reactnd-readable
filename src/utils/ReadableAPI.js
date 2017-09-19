@@ -32,9 +32,9 @@ export const getAllPosts = () => {
 }
 
 // POST /posts
-export const addNewPost = (title, body, author, category) => {
+export const addNewPost = (newPost) => {
   
-  console.log(title, body, author, category)
+  console.log(newPost)
 
   return fetch(`${api}/posts`, { 
     method: 'POST',
@@ -42,12 +42,7 @@ export const addNewPost = (title, body, author, category) => {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      title,
-      body,
-      author,
-      category
-    })
+    body: JSON.stringify(newPost)
   })
 }
 

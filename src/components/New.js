@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { addNewPost } from '../utils/ReadableAPI'
+import uuidv1 from 'uuid/v1'
 
 class New extends Component {
   
@@ -12,7 +13,15 @@ class New extends Component {
 
   onPostClick() {
     const { title, category, author, body } = this.state
-    addNewPost(title, category, author, body)
+    const newPost = {
+      id: uuidv1(),
+      timestamp: Date.now(),
+      title,
+      category,
+      author,
+      body
+    }
+    addNewPost(newPost)
   }
 
   onTitleChange(e) {
