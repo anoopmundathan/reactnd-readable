@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { addNewPost } from '../utils/ReadableAPI'
+import { connect } from 'react-redux'
+import { fetchCategories } from '../actions'
+
 import uuidv1 from 'uuid/v1'
 
 class New extends Component {
@@ -9,6 +12,10 @@ class New extends Component {
     category: '',
     author: '',
     body: ''
+  }
+
+  componentDidMount() {
+    this.props.getCategories();
   }
 
   onPostClick() {
@@ -28,10 +35,6 @@ class New extends Component {
     this.setState({ title: e.target.value })
   }
 
-  onCategoryChange(e) {
-    this.setState({ category: e.target.value })
-  }
-
   onAuthorChange(e) {
     this.setState({ author: e.target.value })
   }
@@ -40,7 +43,20 @@ class New extends Component {
     this.setState({ body: e.target.value })
   }
 
+  onCategoryChange = (e) => {
+    this.setState({
+      category: e.target.value
+    })
+  }
+
   render() {
+    const { categories } = this.props
+    const optionList = categories.map(category => ( 
+        <option 
+          key={category.name} 
+          value={category.name}>{category.name}</option>
+      ))
+
     return(
       <div>
         <div>
@@ -50,10 +66,12 @@ class New extends Component {
             value={this.state.title}></input>
         </div>
         <div>
-          Category: <input 
-            type="text" 
-            onChange={(e) => this.onCategoryChange(e)}
-            value={this.state.category}></input>
+          Category:
+          <select 
+            value={this.state.category} 
+            onChange={this.onCategoryChange}>
+            {optionList}
+          </select>
         </div>
         <div>
           Body:<textarea 
@@ -81,4 +99,16 @@ class New extends Component {
   }
 }
 
-export default New
+const mapStateToProps = ({ categories }) => {
+  return {
+    categories: categories.categories
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCategories: () => dispatch(fetchCategories())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(New)

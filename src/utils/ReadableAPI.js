@@ -33,9 +33,6 @@ export const getAllPosts = () => {
 
 // POST /posts
 export const addNewPost = (newPost) => {
-  
-  console.log(newPost)
-
   return fetch(`${api}/posts`, { 
     method: 'POST',
     headers: {

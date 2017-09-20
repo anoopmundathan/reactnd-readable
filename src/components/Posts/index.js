@@ -35,7 +35,7 @@ class Posts extends Component {
         <NewPost />
         {filteredPosts.length > 0
         ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
-        : (<h3>No Posts</h3>)
+        : null
         }
       </div>
     )
