@@ -28,6 +28,7 @@ class New extends Component {
       author,
       body
     }
+    
     addNewPost(newPost)
   }
 
@@ -47,6 +48,7 @@ class New extends Component {
     this.setState({
       category: e.target.value
     })
+    
   }
 
   render() {
@@ -58,41 +60,65 @@ class New extends Component {
       ))
 
     return(
-      <div>
-        <div>
-          Title: <input 
-            type="text" 
-            onChange={(e) => this.onTitleChange(e)}
-            value={this.state.title}></input>
+      <div className="New-Post">
+
+        <div className="NewPost-Title-Container">
+          <div className="NewPost-Title">
+            <span>Title:</span>
+          </div>
+          <div className="NewPost-Title-Text">
+            <input 
+              type="text" 
+              onChange={(e) => this.onTitleChange(e)}
+              value={this.state.title} />
+          </div>
         </div>
-        <div>
-          Category:
-          <select 
-            value={this.state.category} 
-            onChange={this.onCategoryChange}>
-            {optionList}
-          </select>
+
+        <div className="NewPost-Category">
+          <div>
+            <span>Category:</span>
+          </div>
+          <div>
+            <select 
+              value={this.state.category} 
+              onChange={this.onCategoryChange}>
+              {optionList}
+            </select>
+          </div>
         </div>
-        <div>
-          Body:<textarea 
-            onChange={(e) => this.onBodyChange(e)}
-            value={this.state.body}
-            name="comments" 
-            id="" 
-            cols="30" 
-            rows="10"></textarea>
+
+        <div className="NewPost-Body">
+          <div>
+            <span>Body:</span>
+          </div>
+          <div>
+            <textarea 
+              onChange={(e) => this.onBodyChange(e)}
+              value={this.state.body}
+              name="comments" 
+              id="" 
+              cols="30" 
+              rows="10" />
+          </div>
         </div>
-        <div>
-          Author:<input 
-            onChange={(e) => this.onAuthorChange(e)}
-            type="text" 
-            value={this.state.author}></input>
+
+        <div className="NewPost-Author">
+          <div>
+            Author:
+          </div>
+          <div>
+            <input 
+              onChange={(e) => this.onAuthorChange(e)}
+              type="text" 
+              value={this.state.author} />
+          </div>
         </div>
-        <div>
+
+        <div className="NewPost-Button">
           <input 
             type="button" 
             value="Post" 
-            onClick={this.onPostClick.bind(this)}></input>
+            onClick={this.onPostClick.bind(this)} />
         </div>
       </div>
     )
