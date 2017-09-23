@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import Header from './Header'
+import Header from './Header/'
 import Posts from './Posts/'
 import PostDetail from './PostDetail'
 import New from './New'

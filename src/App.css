@@ -75,7 +75,7 @@
 .Side-Nav {
   margin: 0;
   padding: 0;
-  width: 300px;
+  width: 40%;
   height: 100vh;
   position: relative;
   background: linear-gradient(10deg, #F6B352 0%, #FA4D6D 100%);
@@ -89,10 +89,6 @@
 
 .Side-Nav-Hide {
   transform: translate(-100%, 0);
-}
-
-.Post-Container {
-  width: 100%;
 }
 
 .NewPost {
