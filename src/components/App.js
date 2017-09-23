@@ -10,12 +10,29 @@ import SideNav from './SideNav'
 import '../App.css'
 
 class App extends Component {
+  state = {
+    hamburgerClicked: false
+  }
+
+  onHamburgerClick = () => {
+    this.setState({
+      hamburgerClicked: !this.state.hamburgerClicked
+    })
+  }
+
   render() {
+    let sideNavClass = 'Side-Nav-Hide'
+    if (this.state.hamburgerClicked) {
+      sideNavClass = 'Side-Nav'
+    }
     return(
       <div className="App">
-        <Header />
+        <Header 
+          onHamburgerClick={this.onHamburgerClick} 
+          hamburgerClicked={this.state.hamburgerClicked} />
         <div className="Container">
-          <SideNav />
+          <SideNav 
+            sideNavClass={sideNavClass}/>
           <div className="Post-Container">
             <Route exact path ='/' component={Posts} />
             <Route exact path ='/:category' component={Posts} />

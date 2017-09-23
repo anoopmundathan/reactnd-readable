@@ -1,9 +1,9 @@
 import React from 'react'
 import Categories from './Categories'
 
-const SideNav = () => {
+const SideNav = (props) => {
   return(
-    <div className="Side-Nav">
+    <div className={props.sideNavClass}>
       <Categories />
     </div>
   )

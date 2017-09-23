@@ -7,11 +7,7 @@ const Hamburger = (props) => {
       className='Hamburger-Container'
       onClick={props.onHamburgerClick}>
 			<div className='Hamburger'>
-				<div className={props.top.join(' ')}>
-				</div>
-				<div className={props.middle.join(' ')}>
-				</div>
-				<div className={props.bottom.join(' ')}>
+				<div className='Hamburger-Middle'>
 				</div>
 			</div>
 		</div>
@@ -37,36 +33,14 @@ Name.PropTypes = {
 }
 
 class Header extends Component {
-  
-  state = {
-    hamburgerClicked: false
-  }
-
-  onHamburgerClick = () => {
-    this.setState({
-      hamburgerClicked: !this.state.hamburgerClicked
-    })
-  }
 
   render() {
-    const hamBurgerTopClass = ['Hamburger-Top'];
-		const hamBurgerMiddleClass = ['Hamburger-Middle'];
-		const hamBurgerBottomClass = ['Hamburger-Bottom'];
-	
-		if (this.state.hamburgerClicked) {
-			hamBurgerTopClass.push('Hamburger-Top-Active');
-			hamBurgerMiddleClass.push('Hamburger-Middle-Active');
-			hamBurgerBottomClass.push('Hamburger-Bottom-Active');
-    }
-    
+
     return(
       <div className="Header">
         <div className="Hamburger-Name-Container">
           <Hamburger 
-            onHamburgerClick={this.onHamburgerClick} 
-            top={hamBurgerTopClass}
-						middle={hamBurgerMiddleClass}
-						bottom={hamBurgerBottomClass} />
+            onHamburgerClick={this.props.onHamburgerClick} />
           <Name name='Readable'/>
         </div>
       </div>
