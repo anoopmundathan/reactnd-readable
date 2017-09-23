@@ -21,9 +21,9 @@ class App extends Component {
   }
 
   render() {
-    let sideNavClass = 'Side-Nav-Hide'
+    let sideNavClass = ['Side-Nav', 'Side-Nav-Hide']
     if (this.state.hamburgerClicked) {
-      sideNavClass = 'Side-Nav'
+      sideNavClass = ['Side-Nav', 'Side-Nav-Show']
     }
     return(
       <div className="App">

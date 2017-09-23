@@ -77,14 +77,18 @@
   padding: 0;
   width: 300px;
   height: 100vh;
+  position: relative;
   background: linear-gradient(10deg, #F6B352 0%, #FA4D6D 100%);
   box-shadow: 0 2px 5px rgba(0,0,0,.5);
   transition: .5s;
 }
 
+.Side-Nav-Show {
+  transform: translate(0, 0);
+}
+
 .Side-Nav-Hide {
   transform: translate(-100%, 0);
-	transition: .5s;
 }
 
 .Post-Container {
@@ -184,6 +188,11 @@ ul {
 a {
   text-decoration: none;
   color: #D2BCBC;
+}
+
+.Categories {
+  position: absolute;
+  width: 100%;
 }
 
 .Categories-List {
