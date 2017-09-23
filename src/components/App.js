@@ -22,8 +22,10 @@ class App extends Component {
 
   render() {
     let sideNavClass = ['Side-Nav', 'Side-Nav-Hide']
+    let postsClass = ['Post-Container']
     if (this.state.hamburgerClicked) {
       sideNavClass = ['Side-Nav', 'Side-Nav-Show']
+      postsClass = ['Post-Container-Show']
     }
     return(
       <div className="App">
@@ -32,8 +34,8 @@ class App extends Component {
           hamburgerClicked={this.state.hamburgerClicked} />
         <div className="Container">
           <SideNav 
-            sideNavClass={sideNavClass}/>
-          <div className="Post-Container">
+            sideNavClass={sideNavClass} />
+          <div className={postsClass.join(' ')}>
             <Route exact path ='/' component={Posts} />
             <Route exact path ='/:category' component={Posts} />
             <Route exact path ='/:category/:id' component={PostDetail} />

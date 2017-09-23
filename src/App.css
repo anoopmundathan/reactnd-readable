@@ -5,18 +5,22 @@
 
 .Container {
   width: 100%;
-  margin: 0 auto;
-  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  overflow: hidden;
 }
 
 .Side-Nav {
+  position: absolute;
+  top: 70px;
+  width: 300px;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  width: 30%;
-  height: 100vh;
-  position: relative;
   background: linear-gradient(10deg, #F6B352 0%, #FA4D6D 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   transition: .5s;
 }
 
@@ -25,7 +29,19 @@
 }
 
 .Side-Nav-Hide {
-  transform: translate(-100%, 0);
+  transform: translate(-200%, 0);
+}
+
+.Post-Container {
+  top: 70px;
+  height: 100vh;
+  transform: translate(0, 0);
+  transition: .5s;
+}
+
+.Post-Container-Show {
+  transform: translate(300px, 0);
+  transition: .5s;
 }
 
 .NewPost {
