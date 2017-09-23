@@ -1,23 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Hamburger from './Hamburger'
-
-const Name = (props) => {
-  return(
-    <div className="Name-Container">
-      <h1 className="Name">
-        {props.name}
-      </h1>
-    </div>
-  )
-}
-
-Name.PropTypes = {
-  name: PropTypes.string.isRequired
-}
+import Name from './Name'
 
 class Header extends Component {
-
   render() {
     return(
       <div className="Header">
