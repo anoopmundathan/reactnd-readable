@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Hamburger from './Hamburger'
 import Name from './Name'
 
+import './Header.css'
+
 class Header extends Component {
   render() {
     return(
