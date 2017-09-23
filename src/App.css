@@ -4,13 +4,87 @@
 }
 
 /* Header component */
-.Header {
+/* .Header {
   width: 100%;
   padding: 1em;
   background: #FA4D6D;
+} */
+
+.Header {
+	width: 100%;
+  height: 70px;
+  padding: .5em;
+	/* position: fixed; */
+	top: 0;
+	z-index: 1000;
+	background: linear-gradient(90deg, #F6B352 0%, #FA4D6D 100%);
+	transition: 0.5s;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
 }
 
-.Header h1 {
+.Hamburger-Name-Container {
+  width: 100%;
+  display: flex;
+}
+
+.Hambuger-Container {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Hamburger {
+	margin-top: .3em;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	position: relative;
+}
+
+.Hamburger-Top {
+	top: 10px;
+}
+
+.Hamburger-Middle {
+	top: 20px;
+}
+
+.Hamburger-Bottom {
+	top: 30px;
+}
+
+.Hamburger-Top,
+.Hamburger-Middle,
+.Hamburger-Bottom {
+	left: 5px;
+	width: 40px;
+	height: 5px;
+	position: absolute;
+	background: #FFBC42;
+	transition: .5s;
+	box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.Hamburger-Top-Active {
+	top: 20px;
+	transform: rotate(135deg);
+}
+
+.Hamburger-Middle-Active {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.Hamburger-Bottom-Active {
+	top: 20px;
+	transform: rotate(45deg);
+}
+
+.Name-Container {
+  width: 80%;
+}
+
+.Name {
   margin: 0;
   padding: 0;
   text-align: center;
@@ -31,6 +105,13 @@
   width: 300px;
   height: 100vh;
   background: #3A3A5C;
+}
+
+.Hambuger {
+  width: 50px;
+  height: 50px;
+  background: red;
+  cursor: pointer;
 }
 
 .Post-Container {
