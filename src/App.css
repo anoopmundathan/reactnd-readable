@@ -44,16 +44,31 @@
   transition: .5s;
 }
 
-.NewPost {
-  text-align: right;
+.PlusButton-Container {
+  background: linear-gradient(90deg, #F6B352 0%, #F1CDD4 100%);
+  position:fixed;
+  top: 50px;
+  left: 85%;
+  width: 45px;
+  height: 45px;
+  z-index:100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.NewPost p {
+.PlusButton {
+  margin: 7px auto;
+  width: 50%;
+  height: 50%;
+}
+
+.PlusButton p {
   margin: 0;
-  padding-right: 30px;
-  font-size: 1.1em;
-  font-weight: normal;
-  cursor: pointer;
+  padding-top: 0;
+  padding-left: 3px;
+  padding-bottom: 0;
+  padding-right: 0;
+  font-size: 1.6em;
 }
 
 .New-Post {
@@ -136,7 +151,6 @@ ul {
 
 a {
   text-decoration: none;
-  color: #D2BCBC;
 }
 
 .Categories {

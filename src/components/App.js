@@ -6,6 +6,7 @@ import Posts from './Posts/'
 import PostDetail from './PostDetail'
 import New from './New'
 import SideNav from './SideNav'
+import PlusButton from './PlusButton'
 
 import '../App.css'
 
@@ -41,6 +42,7 @@ class App extends Component {
             <Route exact path ='/:category/:id' component={PostDetail} />
             <Route exact path ='/new' component={New} />
           </div>
+          <PlusButton />
         </div>
       </div>
     )

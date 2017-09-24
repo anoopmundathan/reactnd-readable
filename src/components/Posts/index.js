@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts, deletePosts } from '../../actions'
 import { Vote } from './Vote'
-
 import Post from './Post'
-import NewPost from '../NewPost'
 
 class Posts extends Component {
 
@@ -32,7 +30,6 @@ class Posts extends Component {
     
     return(
       <div className="Posts">
-        <NewPost />
         {filteredPosts.length > 0
         ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
         : null

@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost } from '../actions'
 
-import NewPost from './NewPost'
-
 class PostDetail extends Component {
   
   componentDidMount() {
@@ -23,7 +21,6 @@ class PostDetail extends Component {
 
     return(
       <div className="PostDetail">
-        <NewPost />
         <p>{author}</p>
         <p>{body}</p>
         <p>{category}</p>
