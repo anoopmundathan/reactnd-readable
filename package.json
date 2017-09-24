@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "4.15.4",
     "prop-types": "15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -13,13 +14,20 @@
     "redux-thunk": "2.2.0",
     "uuid": "3.1.0"
   },
+  "engines": {
+    "node": "v8.0.0",
+    "npm": "v5.0.0"
+  },
   "devDependencies": {
     "react-scripts": "1.0.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false && npm install --only=dev --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true && npm run build"
   }
 }
