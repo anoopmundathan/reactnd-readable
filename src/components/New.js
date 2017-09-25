@@ -11,7 +11,9 @@ class New extends Component {
     title: '',
     category: '',
     author: '',
-    body: ''
+    body: '',
+    notValid: false,
+    success: false
   }
 
   componentDidMount() {
@@ -20,16 +22,32 @@ class New extends Component {
 
   onPostClick() {
     const { title, category, author, body } = this.state
-    const newPost = {
-      id: uuidv1(),
-      timestamp: Date.now(),
-      title,
-      category,
-      author,
-      body
-    }
     
-    addNewPost(newPost)
+    if (title && category && author && body) {
+      const newPost = {
+        id: uuidv1(),
+        timestamp: Date.now(),
+        title,
+        category,
+        author,
+        body
+      } 
+      addNewPost(newPost)
+        .then(() => this.setState({
+          success: true,
+          title: '',
+          category: '',
+          author: '',
+          body: '',
+          notValid: false 
+        }))
+
+    } else {
+      this.setState({
+        notValid: true,
+        success: false
+      })
+    }
   }
 
   onTitleChange(e) {
@@ -62,6 +80,16 @@ class New extends Component {
     return(
       <div className="New-Post">
 
+        <div>
+          {this.state.success && (
+            <h3>New Post added...</h3> 
+          )}
+        </div>
+        <div>
+          {this.state.notValid && (
+            <h3>Please enter all values...</h3> 
+          )}
+        </div>
         <div className="NewPost-Title-Container">
           <div className="NewPost-Title">
             <span>Title:</span>
