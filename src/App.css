@@ -86,64 +86,6 @@ textarea {
   width: 100%;
 }
 
-/* Posts component */
-.Posts {
-  width: 100%;
-}
-
-/* Post component */
-.Post {
-  padding: 10px;
-}
-
-.Post-Info {
-  display: flex;
-  font-size: .85em;
-  color: #8A8585;
-}
-
-.Title,
-.Delete,
-.Up,
-.Down {
-  cursor: pointer;
-}
-
-.Comments,
-.Points,
-.Vote,
-.Edit,
-.Delete {
-  margin: 0 6px;
-  padding: 0;
-}
-
-.Vote {
-  width: 40px;
-  display: flex;
-  padding-top: 2px;
-}
-
-.Up {
-  width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid #CAC6C6;
-}
-
-.Down {
-  width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid #CAC6C6;
-}
-
-.Author {
-  margin: 0;
-  padding: 0;
-}
 
 ul {
   list-style: none;

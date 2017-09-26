@@ -4,6 +4,7 @@ import { fetchPosts, deletePosts } from '../../actions'
 import { Vote } from './Vote'
 import Post from './Post'
 
+import './Posts.css'
 class Posts extends Component {
 
   componentDidMount() {
