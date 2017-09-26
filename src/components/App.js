@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 import Header from './Header/'
 import Posts from './Posts/'
-import PostDetail from './PostDetail'
+import PostDetail from './PostDetail/'
 import NewPost from './NewPost/'
 import SideNav from './SideNav'
 import PlusButton from './PlusButton'

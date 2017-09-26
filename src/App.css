@@ -71,12 +71,10 @@
   font-size: 1.6em;
 }
 
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
+.PostDetail {
+  width: 80vw;
+  margin: 0 auto;
+  padding-top: 2em;
 }
 
 .Categories {
@@ -103,11 +101,18 @@ a {
   .Header h1 {
     font-size: 5.5vw;
   }
+  .PostDetail {
+    width: 65vw;
+  }
 }
 
 @media screen and (min-width: 900px) {
   .Header h1 {
     font-size: 3.5vw;
+  }
+
+  .PostDetail {
+    width: 50vw;
   }
 }
 
