@@ -12,8 +12,10 @@
 
 .Post-Info {
   display: flex;
-  font-size: .85em;
+  font-size: 1em;
   color: #8A8585;
+  padding-top: .2em;
+  padding-bottom: .2em;
 }
 
 .Title,
@@ -23,13 +25,12 @@
   cursor: pointer;
 }
 
-.Comments,
+.Total-Comments,
 .Points,
 .Vote,
 .Edit,
 .Delete {
   margin: 0 6px;
-  padding: 0;
 }
 
 .Vote {
@@ -55,7 +56,7 @@
 }
 
 .Author {
-  margin: 0;
+  margin-right: .5em;
   padding: 0;
 }
 

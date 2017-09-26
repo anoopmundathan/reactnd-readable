@@ -4,8 +4,8 @@ export class Count extends Component {
   render() {
     const { count } = this.props
     return(
-      <div>
-        {count}
+      <div className="Total-Comments">
+        {count} comments
       </div>
     )
   }

@@ -59,7 +59,6 @@ class Post extends Component {
           post={this.props.post} />
         <div className="Post-Info">
           <Author author={author} />
-          <Count count={count} />
           <Points point={score} />
           <Vote 
             id={id} 
@@ -67,6 +66,7 @@ class Post extends Component {
             onClickUpVote={this.onClickUpVote} />
           <Edit />
           <Delete id={id} onDeleteClick={this.onDeleteClick}/>
+          <Count count={count} />
         </div>
       </div>
     )
