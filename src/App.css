@@ -71,22 +71,6 @@
   font-size: 1.6em;
 }
 
-.New-Post {
-  width: 90%;
-  margin: 0 auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.New-Post 
-input,
-select,
-textarea {
-  font-size: 1em;
-  width: 100%;
-}
-
-
 ul {
   list-style: none;
 }
@@ -125,25 +109,5 @@ a {
   .Header h1 {
     font-size: 3.5vw;
   }
-
-  .New-Post 
-  input,
-  select,
-  textarea {
-    width: 70%;
-  }
-
-  .NewPost-Title-Container {
-    display: flex;
-  }
-
-  .NewPost-Title {
-    width: 10%;
-  }
-
-  .NewPost-Title-Text {
-    width: 90%;
-  }
-  
 }
 

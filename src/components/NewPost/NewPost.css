@@ -1,0 +1,41 @@
+.New-Post {
+  width: 80vw;
+  margin: 2em auto;
+  padding-top: 1em;
+}
+
+.New-Post 
+input,
+select,
+textarea {
+  font-size: 1.2em;
+  width: 100%;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.Post-Button {
+  background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: .5em 2px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .New-Post {
+    width: 65vw;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .New-Post {
+    width: 45vw;
+  }
+}
+

@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import Header from './Header/'
 import Posts from './Posts/'
 import PostDetail from './PostDetail'
-import New from './New'
+import NewPost from './NewPost/'
 import SideNav from './SideNav'
 import PlusButton from './PlusButton'
 
@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path ='/' component={Posts} />
             <Route exact path ='/:category' component={Posts} />
             <Route exact path ='/:category/:id' component={PostDetail} />
-            <Route exact path ='/new' component={New} />
+            <Route exact path ='/new' component={NewPost} />
           </div>
           <PlusButton />
         </div>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { addNewPost } from '../utils/ReadableAPI'
+import { addNewPost } from '../../utils/ReadableAPI'
 import { connect } from 'react-redux'
-import { fetchCategories } from '../actions'
+import { fetchCategories } from '../../actions'
 
 import uuidv1 from 'uuid/v1'
 
-class New extends Component {
+import './NewPost.css'
+
+class NewPost extends Component {
   
   state = {
     title: '',
@@ -76,10 +78,9 @@ class New extends Component {
           key={category.name} 
           value={category.name}>{category.name}</option>
       ))
-
+      
     return(
       <div className="New-Post">
-
         <div>
           {this.state.success && (
             <h3>New Post added...</h3> 
@@ -91,12 +92,10 @@ class New extends Component {
           )}
         </div>
         <div className="NewPost-Title-Container">
-          <div className="NewPost-Title">
-            <span>Title:</span>
-          </div>
           <div className="NewPost-Title-Text">
             <input 
               type="text" 
+              placeholder="Title"
               onChange={(e) => this.onTitleChange(e)}
               value={this.state.title} />
           </div>
@@ -104,10 +103,8 @@ class New extends Component {
 
         <div className="NewPost-Category">
           <div>
-            <span>Category:</span>
-          </div>
-          <div>
             <select 
+              placeholder="Select Category"
               value={this.state.category} 
               onChange={this.onCategoryChange}>
               {optionList}
@@ -117,25 +114,21 @@ class New extends Component {
 
         <div className="NewPost-Body">
           <div>
-            <span>Body:</span>
-          </div>
-          <div>
             <textarea 
+              placeholder="Here your post detail goes..."
               onChange={(e) => this.onBodyChange(e)}
               value={this.state.body}
               name="comments" 
               id="" 
               cols="30" 
-              rows="10" />
+              rows="8" />
           </div>
         </div>
 
         <div className="NewPost-Author">
           <div>
-            Author:
-          </div>
-          <div>
             <input 
+              placeholder="Author"
               onChange={(e) => this.onAuthorChange(e)}
               type="text" 
               value={this.state.author} />
@@ -143,7 +136,8 @@ class New extends Component {
         </div>
 
         <div className="NewPost-Button">
-          <input 
+          <input
+            className="Post-Button"
             type="button" 
             value="Post" 
             onClick={this.onPostClick.bind(this)} />
@@ -165,4 +159,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(New)
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost)
