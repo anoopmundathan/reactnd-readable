@@ -1,3 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const Edit = () => <div className="Edit">edit</div>
+export const Edit = (props) => {
+  return(
+    <div className="Edit">
+      <Link to={`/edit/${props.id}`}>edit</Link>
+    </div>
+  )
+}
