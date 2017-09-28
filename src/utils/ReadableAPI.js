@@ -43,6 +43,18 @@ export const addNewPost = (newPost) => {
   })
 }
 
+// PUT /posts/:id
+export const editPost = (id, editPost) => {
+  return fetch(`${api}/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(editPost)
+  })
+}
+
 // GET /posts/:id
 export const getPost = (id) => {
   return fetch(`${api}/posts/${id}`, { headers })

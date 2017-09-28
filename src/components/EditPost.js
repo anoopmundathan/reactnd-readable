@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost } from '../actions'
 import { fetchCategories } from '../actions'
+import { editPost } from '../utils/ReadableAPI'
 
 import './NewPost/NewPost.css'
 
 class EditPost extends Component {
 
   state = {
+    id: '',
     title: '',
     author: '',
     body: '',
@@ -20,6 +22,7 @@ class EditPost extends Component {
       .then(() => {
         const { title, author, body, category, voteScore } = this.props.post.post
         this.setState({
+          id,
           title,
           author,
           body,
@@ -55,8 +58,8 @@ class EditPost extends Component {
   }
 
   onEditClick = () => {
-    /*TODO Validation*/
-    /* Call API to edit the post*/
+    const { id, title, body } = this.state
+    editPost(id, {title, body})
   }
 
   render() {
