@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost } from '../actions'
+import { fetchCategories } from '../actions'
 
 import './NewPost/NewPost.css'
 
@@ -18,7 +19,6 @@ class EditPost extends Component {
     this.props.getPost(id)
       .then(() => {
         const { title, author, body, category, voteScore } = this.props.post.post
-        console.log(category)
         this.setState({
           title,
           author,
@@ -26,7 +26,8 @@ class EditPost extends Component {
           category
         })
       })
-  
+
+      this.props.getCategories()  
   }
 
   onTitleChange = (e) => {
@@ -47,12 +48,27 @@ class EditPost extends Component {
     })
   }
 
+  onCategoryChange = (e) => {
+    this.setState({
+      category: e.target.value
+    })
+  }
+
   onEditClick = () => {
     /*TODO Validation*/
     /* Call API to edit the post*/
   }
 
   render() {
+    const { categories } = this.props.categories
+    const categoryList = categories.map(category => {
+      return (
+        <option key={category.name} value={category.name}>
+          {category.name}
+        </option>
+      )
+    })
+
     return(
       <div className="New-Post">
         <div className="NewPost-Title-Container">
@@ -67,10 +83,9 @@ class EditPost extends Component {
         <div className="NewPost-Category">
           <div>
             <select 
-              value={this.state.category} >
-              <option key="one" value={this.state.category}>
-                {this.state.category}
-              </option>
+              onChange={this.onCategoryChange}
+              value={this.state.category}>
+              {categoryList}
             </select>
           </div>
         </div>
@@ -108,15 +123,17 @@ class EditPost extends Component {
   }
 }
 
-const mapStateToProps = ({ post }) => {
+const mapStateToProps = ({ post, categories }) => {
   return {
-    post: post
+    post,
+    categories
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPost: (id) => dispatch(fetchPost(id))
+    getPost: (id) => dispatch(fetchPost(id)),
+    getCategories: () => dispatch(fetchCategories())
   }
 }
 
