@@ -13,7 +13,9 @@ class EditPost extends Component {
     title: '',
     author: '',
     body: '',
-    category: ''
+    category: '',
+    notValid: false,
+    success: false
   }
 
   componentDidMount() {
@@ -60,6 +62,12 @@ class EditPost extends Component {
   onEditClick = () => {
     const { id, title, body } = this.state
     editPost(id, {title, body})
+      .then(() => {
+        this.setState({
+          success: true
+        })
+      })
+      
   }
 
   render() {
@@ -74,6 +82,16 @@ class EditPost extends Component {
 
     return(
       <div className="New-Post">
+        <div>
+          {this.state.success && (
+            <h3>Post is Edited...</h3> 
+          )}
+        </div>
+        <div>
+          {this.state.notValid && (
+            <h3>Please enter all values...</h3> 
+          )}
+        </div>
         <div className="NewPost-Title-Container">
           <div className="NewPost-Title-Text">
             <input 
