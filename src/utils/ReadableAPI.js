@@ -41,17 +41,18 @@ export const addNewPost = (newPost) => {
     },
     body: JSON.stringify(newPost)
   })
+  .then(data => data.json())
 }
 
 // PUT /posts/:id
-export const editPost = (id, editPost) => {
+export const editPost = (id, post) => {
   return fetch(`${api}/posts/${id}`, {
     method: 'PUT',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(editPost)
+    body: JSON.stringify(post)
   })
   .then(data => data.json())
 }

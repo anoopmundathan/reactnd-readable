@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPost } from '../actions'
-import { fetchCategories, editPostAction } from '../actions'
+import { fetchPost, fetchCategories, editPostAction } from '../actions'
 
 import './NewPost/NewPost.css'
 

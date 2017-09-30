@@ -6,6 +6,7 @@ import {
   votePost,
   getAllPostsForCategory,
   getComments,
+  addNewPost,
   editPost
 } from '../utils/ReadableAPI'
 
@@ -48,6 +49,16 @@ export const editPostAction = (id, post) => dispatch => (
       dispatch({
         type: 'EDIT_POST',
         id, 
+        post
+      })
+    })
+)
+
+export const addNewPostAction = (post) => dispatch => (
+  addNewPost(post)
+    .then(post => {
+      dispatch({
+        type: 'ADD_NEW_POST',
         post
       })
     })

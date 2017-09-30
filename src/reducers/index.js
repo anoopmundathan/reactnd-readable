@@ -22,6 +22,11 @@ const posts = (state = { posts: [] }, action) => {
       return {
         posts: [...state.posts, action.post]
       }
+    case 'ADD_NEW_POST':
+      return {
+        ...state,
+        posts: [...state.posts, action.post]
+      }
     case 'DELETE_POSTS':
       return {
         posts: []

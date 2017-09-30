@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import { addNewPost } from '../../utils/ReadableAPI'
 import { connect } from 'react-redux'
-import { fetchCategories } from '../../actions'
-
+import { fetchCategories, addNewPostAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
 
 import './NewPost.css'
 
 class NewPost extends Component {
-  
   state = {
     title: '',
     category: '',
@@ -34,7 +31,7 @@ class NewPost extends Component {
         author,
         body
       } 
-      addNewPost(newPost)
+      this.props.addPost(newPost)
         .then(() => this.setState({
           success: true,
           title: '',
@@ -43,7 +40,6 @@ class NewPost extends Component {
           body: '',
           notValid: false 
         }))
-
     } else {
       this.setState({
         notValid: true,
@@ -155,7 +151,8 @@ const mapStateToProps = ({ categories }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCategories: () => dispatch(fetchCategories())
+    getCategories: () => dispatch(fetchCategories()),
+    addPost: (post) => dispatch(addNewPostAction(post))
   }
 }
 
