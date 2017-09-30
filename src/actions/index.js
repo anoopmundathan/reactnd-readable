@@ -5,7 +5,8 @@ import {
   deletePost,
   votePost,
   getAllPostsForCategory,
-  getComments
+  getComments,
+  editPost
 } from '../utils/ReadableAPI'
 
 export const GET_POSTS = 'GET_POSTS'
@@ -37,6 +38,17 @@ export const upVoteAction = (id) => dispatch => (
       dispatch({
         type: 'UP_VOTE',
         id
+      })
+    })
+)
+
+export const editPostAction = (id, post) => dispatch => (
+  editPost(id, post)
+    .then((post) => {
+      dispatch({
+        type: 'EDIT_POST',
+        id, 
+        post
       })
     })
 )

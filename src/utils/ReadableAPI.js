@@ -53,6 +53,7 @@ export const editPost = (id, editPost) => {
     },
     body: JSON.stringify(editPost)
   })
+  .then(data => data.json())
 }
 
 // GET /posts/:id

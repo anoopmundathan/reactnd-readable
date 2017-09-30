@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost } from '../actions'
-import { fetchCategories } from '../actions'
-import { editPost } from '../utils/ReadableAPI'
+import { fetchCategories, editPostAction } from '../actions'
 
 import './NewPost/NewPost.css'
 
@@ -60,14 +59,18 @@ class EditPost extends Component {
   }
 
   onEditClick = () => {
-    const { id, title, body } = this.state
-    editPost(id, {title, body})
-      .then(() => {
+    const { id, title, category, body, author } = this.state
+    this.props.editPost(id, {
+      title,
+      category,
+      body,
+      author
+    })
+    .then(() => {
         this.setState({
           success: true
         })
-      })
-      
+    })
   }
 
   render() {
@@ -153,6 +156,7 @@ const mapStateToProps = ({ post, categories }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    editPost: (id, post) => dispatch(editPostAction(id, post)),
     getPost: (id) => dispatch(fetchPost(id)),
     getCategories: () => dispatch(fetchCategories())
   }
