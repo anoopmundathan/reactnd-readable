@@ -16,7 +16,7 @@ class EditPost extends Component {
     success: false
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { id } = this.props.match.params
     this.props.getPost(id)
       .then(() => {
@@ -29,8 +29,7 @@ class EditPost extends Component {
           category
         })
       })
-
-      this.props.getCategories()  
+      //this.props.getCategories()  
   }
 
   onTitleChange = (e) => {
@@ -74,6 +73,7 @@ class EditPost extends Component {
 
   render() {
     const { categories } = this.props.categories
+    console.log(this.props.post)
     const categoryList = categories.map(category => {
       return (
         <option key={category.name} value={category.name}>
