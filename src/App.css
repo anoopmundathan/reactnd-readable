@@ -44,14 +44,6 @@
   transition: .5s;
 }
 
-.SortBy-Container {
-  position: absolute;
-  top:100px;
-  left: 15%;
-  width: 60vw;
-  margin: 0 auto;
-}
-
 
 .PlusButton-Container {
   background: linear-gradient(90deg, #F6B352 0%, #F1CDD4 100%);
@@ -107,6 +99,7 @@
   .PostDetail {
     width: 65vw;
   }
+
 }
 
 @media screen and (min-width: 900px) {
@@ -117,5 +110,5 @@
   .PostDetail {
     width: 50vw;
   }
-}
 
+}

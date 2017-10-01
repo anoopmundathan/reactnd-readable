@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPosts, deletePosts } from '../../actions'
 import { Vote } from './Vote'
 import Post from './Post'
+import SortBy from './SortBy'
 
 import './Posts.css'
 class Posts extends Component {
@@ -31,6 +32,7 @@ class Posts extends Component {
     
     return(
       <div className="Posts">
+        <SortBy />
         {filteredPosts.length > 0
         ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
         : null

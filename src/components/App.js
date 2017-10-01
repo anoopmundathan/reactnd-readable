@@ -46,26 +46,11 @@ class App extends Component {
               <Route exact path ='/:category/:id' component={PostDetail} />
             </Switch>
           </div>
-          <SortBy />
           <PlusButton />
         </div>
       </div>
     )
   }
-}
-
-const SortBy = () => {
-  return(
-    <div className="SortBy-Container">
-      <div className="SortBy">
-        <select name="sort" id="">
-          <option value="Popular">Popular</option>
-          <option value="UnPopular">UnPopular</option>
-          <option value="Date">Date</option>
-        </select>
-      </div>
-    </div>
-  )
 }
 
 export default App
