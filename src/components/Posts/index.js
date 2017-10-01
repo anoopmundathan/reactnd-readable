@@ -26,8 +26,18 @@ class Posts extends Component {
     })
     
     let postList
+
     if (filteredPosts.length > 0) {
-      postList = filteredPosts.map(post => (<li key={post.id}><Post post={post} /></li>))
+
+      postList = filteredPosts.sort((a, b) => {
+        if(a.voteScore > b.voteScore) {
+          return -1
+        } else {
+          return 1
+        }
+        return 0
+      }).map(post => (<li key={post.id}><Post post={post} /></li>))
+
     }
     
     return(
@@ -42,9 +52,10 @@ class Posts extends Component {
   }
 }
 
-const mapStateToProps = ({ posts }) => {
+const mapStateToProps = ({ posts, sort }) => {
   return {
-    posts: posts.posts
+    posts: posts.posts,
+    sort
   }
 }
 
