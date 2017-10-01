@@ -27,18 +27,37 @@ class Posts extends Component {
     
     let postList
 
+    // TODO - write in better way - DRY principle
     if (filteredPosts.length > 0) {
-
-      postList = filteredPosts.sort((a, b) => {
-        if(a.voteScore > b.voteScore) {
-          return -1
-        } else {
-          return 1
-        }
-        return 0
-      }).map(post => (<li key={post.id}><Post post={post} /></li>))
-
-    }
+      if(this.props.sort === 'popular') {
+        postList = filteredPosts.sort((a, b) => {
+          if(a.voteScore > b.voteScore) {
+            return -1
+          } else {
+            return 1
+          }
+          return 0
+        }).map(post => (<li key={post.id}><Post post={post} /></li>))
+      } else if(this.props.sort === 'unpopular') {
+        postList = filteredPosts.sort((a, b) => {
+          if(a.voteScore > b.voteScore) {
+            return 1
+          } else {
+            return -1
+          }
+          return 0
+        }).map(post => (<li key={post.id}><Post post={post} /></li>))
+      } else if(this.props.sort === 'date') {
+        postList = filteredPosts.sort((a, b) => {
+          if(a.timestamp > b.timestamp) {
+            return 1
+          } else {
+            return -1
+          }
+          return 0
+        }).map(post => (<li key={post.id}><Post post={post} /></li>))
+      }
+    } 
     
     return(
       <div className="Posts">
@@ -55,7 +74,7 @@ class Posts extends Component {
 const mapStateToProps = ({ posts, sort }) => {
   return {
     posts: posts.posts,
-    sort
+    sort: sort.sort
   }
 }
 
