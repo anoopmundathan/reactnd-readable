@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPost } from '../../actions'
-import { addComment } from '../../utils/ReadableAPI'
+import { fetchPost, addCommentAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
 
 import './PostDetail.css'
@@ -21,6 +20,7 @@ class PostDetail extends Component {
       txtComment: e.target.value
     })
   }
+
   onCommentSubmit = (e) => {
     e.preventDefault();
     const newComment = {
@@ -32,7 +32,7 @@ class PostDetail extends Component {
     } 
 
     // POST new comment
-    addComment(newComment)
+    this.props.addComment(newComment)
   }
 
   render() {
@@ -76,7 +76,8 @@ const mapStateToProps = ({ post }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPost: (id) => dispatch(fetchPost(id))
+    getPost: (id) => dispatch(fetchPost(id)),
+    addComment: (comment) => dispatch(addCommentAction(comment))
   }
 }
 

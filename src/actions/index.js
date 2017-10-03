@@ -7,7 +7,8 @@ import {
   getAllPostsForCategory,
   getComments,
   addNewPost,
-  editPost
+  editPost,
+  addComment
 } from '../utils/ReadableAPI'
 
 const GET_POSTS = 'GET_POSTS'
@@ -21,13 +22,7 @@ const DELETE_POSTS = 'DELETE_POSTS'
 const DOWN_VOTE = 'DOWN_VOTE'
 const UP_VOTE = 'UP_VOTE'
 const CHANGE_SORT = 'CHANGE_SORT'
-
-export const changeSortAction = (value) => {
-  return {
-    type: CHANGE_SORT,
-    value: value
-  }
-}
+const ADD_COMMENT = 'ADD_COMMENT'
 
 export const fetchPosts = () => dispatch => (
   getAllPosts()
@@ -133,3 +128,20 @@ export const fetchCategories = () => dispatch => (
 export const deletePosts = () => ({
   type: DELETE_POSTS
 })
+
+export const changeSortAction = (value) => {
+  return {
+    type: CHANGE_SORT,
+    value: value
+  }
+}
+
+export const addCommentAction = (comment) => dispatch => {
+  addComment(comment)
+    .then(comment => {
+      dispatch({
+        type: ADD_COMMENT,
+        comment
+      })
+    })
+}

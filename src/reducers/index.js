@@ -9,6 +9,14 @@ const post = (state = { post: {} }, action) => {
         ...state, 
         post: action.post
       }
+    case 'ADD_COMMENT':
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: [...state.post.comments, action.comment]
+        }
+      }
     default: 
       return state
   }
