@@ -4,6 +4,19 @@
   padding-top: 2em;
 }
 
+.Comment-Button {
+  background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 100%;
+}
+
 @media screen and (min-width: 600px) {
   .PostDetail {
     width: 65vw;
