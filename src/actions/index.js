@@ -137,7 +137,7 @@ export const changeSortAction = (value) => {
 }
 
 export const addCommentAction = (comment) => dispatch => {
-  addComment(comment)
+  return addComment(comment)
     .then(comment => {
       dispatch({
         type: ADD_COMMENT,

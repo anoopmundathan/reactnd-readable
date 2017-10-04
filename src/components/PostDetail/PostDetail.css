@@ -1,4 +1,4 @@
-.PostDetail {
+.PostDetail-Container {
   width: 70vw;
   margin: 0 auto;
   padding-top: 2em;
@@ -18,13 +18,13 @@
 }
 
 @media screen and (min-width: 600px) {
-  .PostDetail {
+  .PostDetail-Container  {
     width: 65vw;
   }
 }
 
 @media screen and (min-width: 900px) {
-  .PostDetail {
+  .PostDetail-Container  {
     width: 50vw;
   }
 }

@@ -35,6 +35,11 @@ class PostDetail extends Component {
       } 
       // POST new comment
       this.props.addComment(newComment)
+        .then(() => {
+          this.setState({
+            txtComment: ''
+          })
+        })
     }
   }
 
@@ -45,41 +50,46 @@ class PostDetail extends Component {
     if (this.props.post.post.comments) {
       commentList = this.props.post.post.comments.map(comment => {
         return (
-          <li key={comment.id}>
+          <li 
+            key={comment.id}>
             {comment.body}
-            <a href="">edit</a>
-            <a href="">delete</a>
           </li>
         )
       })
     }
 
     return(
-      <div className="PostDetail">
-        <p>{author} Posted on {timestamp} </p>
-        <p>{body}</p>
-        <p>{category}</p>
-        <p>{title}</p>
-        <p>{voteScore}</p>
+      <div className="PostDetail-Container">
+        <div className="PostDetail">
+          <h3>{title}</h3>
+          <p>{body}</p>
+          <p>Posted on {timestamp} by {author}</p>
+          <p>{category}</p>
+          <p>{voteScore}</p>
+        </div>
         <hr/>
-        <form 
-          className="CommentForm"
-          onSubmit={this.onCommentSubmit}>
-            <textarea 
-                placeholder="Enter your comments..."
-                onChange={this.onInputChange} 
-                value={this.state.txtComment}
-                name="comments" 
-                id="" 
-                cols="30" 
-                rows="5" />
-            <input 
-              className="Comment-Button"
-              value="Add Comment"
-              type="submit"/>
-        </form>
+        <div className="CommentForm">
+          <form
+            onSubmit={this.onCommentSubmit}>
+              <textarea 
+                  placeholder="Enter your comments..."
+                  onChange={this.onInputChange} 
+                  value={this.state.txtComment}
+                  name="comments" 
+                  id="" 
+                  cols="30" 
+                  rows="5" />
+              <input 
+                className="Comment-Button"
+                value="Add Comment"
+                type="submit"/>
+          </form>
+
+        </div>
         <hr/>
-        <ul>{commentList}</ul>
+        <div className="CommentList">
+          <ul>{commentList}</ul>
+        </div>
       </div>
     )
   }
