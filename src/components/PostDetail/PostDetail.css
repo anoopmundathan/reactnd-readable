@@ -1,7 +1,52 @@
-.PostDetail-Container {
+.PostDetail {
   width: 70vw;
   margin: 0 auto;
   padding-top: 2em;
+}
+
+.PostInfo {
+
+}
+
+.CommentForm {
+
+}
+
+.CommentList {
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.Comment-Container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Comment-Body {
+  width: 100%;
+}
+
+.Comment-Edit-Delete {
+  width: 100%;
+  display: flex;
+}
+
+.Edit,
+.Delete {
+}
+
+input[type="button"] {
+  background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: .7em;
+  cursor: pointer;
+  width: 100%;
 }
 
 .Comment-Button {
@@ -18,13 +63,13 @@
 }
 
 @media screen and (min-width: 600px) {
-  .PostDetail-Container  {
+  .PostDetail {
     width: 65vw;
   }
 }
 
 @media screen and (min-width: 900px) {
-  .PostDetail-Container  {
+  .PostDetail {
     width: 50vw;
   }
 }
