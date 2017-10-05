@@ -110,4 +110,5 @@ export const deleteComment = (id) => {
     method: 'DELETE',
     headers
   })
+  .then(data => data.json())
 }

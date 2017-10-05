@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { deleteComment } from '../../utils/ReadableAPI'
+import { connect } from 'react-redux'
+import { deleteCommentAction } from '../../actions'
 
 const CommentBody = (props) => {
   return(
@@ -51,10 +52,10 @@ const CommentContainer = (props) => {
   )
 }
 
-export class CommentList extends Component {
+class CommentList extends Component {
 
   onDelete = (id) => {
-    deleteComment(id)
+    this.props.deleteComment(id)
   }
 
   onEdit = (id) => {
@@ -88,3 +89,11 @@ export class CommentList extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteComment: (id) => dispatch(deleteCommentAction(id))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CommentList)

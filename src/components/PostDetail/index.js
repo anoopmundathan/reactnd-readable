@@ -4,7 +4,7 @@ import { fetchPost, addCommentAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
 import { PostInfo } from './PostInfo'
 import { CommentForm } from './CommentForm'
-import { CommentList } from './CommentList'
+import CommentList from './CommentList'
 
 import './PostDetail.css'
 

@@ -17,6 +17,17 @@ const post = (state = { post: {} }, action) => {
           comments: [...state.post.comments, action.comment]
         }
       }
+    case 'DELETE_COMMENT':
+      const comments = [...state.post.comments]
+      const indexComment = comments.findIndex(comment => comment.id === action.id)
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: [...comments.slice(0, indexComment), 
+          ...comments.slice(indexComment + 1)]
+        }
+      }
     default: 
       return state
   }
