@@ -2,23 +2,74 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { deleteCommentAction } from '../../actions'
 
-const CommentBody = (props) => {
-  return(
-    <div className="Comment-Body">
-      {props.body}
-    </div>
-  )
+class CommentBody extends Component {
+  state = {
+    comment: ''
+  }
+
+  componentDidMount() {
+    const { body } = this.props
+    this.setState({
+      comment: body
+    })
+  }
+
+  onChangeComment = (e) => {
+    this.setState({
+      comment: e.target.value
+    })
+  }
+
+  render() {
+    if(this.props.editId === this.props.id) {
+      return(
+        <div className="Comment-Body">
+          <input
+            onChange={this.onChangeComment} 
+            value={this.state.comment}
+            type="text"/>
+        </div>
+      )
+    } else {
+      return(
+        <div className="Comment-Body">
+          {this.props.body}
+        </div>
+      )
+    }
+  }
 }
 
-const CommentEdit = (props) => {
-  return(
-    <div className="Edit">
-      <input 
-        onClick={props.onEdit}
-        type="button" 
-        value="Edit" />
-    </div>
-  )
+class CommentEdit extends Component {
+
+  onEdit = () => {
+    const id = this.props.id
+    if(!this.props.edit && this.props.editId) {
+      this.props.onEdit(null)
+    } else {
+      this.props.onEdit(id) 
+    }
+  }
+
+  render() {
+    
+    let buttonValue
+    
+    if (this.props.editId === this.props.id) {
+      buttonValue = this.props.editId ? 'Save' : 'Edit'
+    } else {
+      buttonValue = 'Edit'
+    }
+
+    return(
+      <div className="Edit">
+        <input 
+          onClick={this.onEdit}
+          type="button" 
+          value={buttonValue} />
+      </div>
+    )
+  }
 }
 
 class CommentDelete extends Component {
@@ -43,9 +94,9 @@ class CommentDelete extends Component {
 const CommentContainer = (props) => {
   return(
     <div className="Comment-Container">
-      <CommentBody body={props.body}/>
+      <CommentBody id={props.id} editId={props.editId} body={props.body}/>
       <div className="Comment-Edit-Delete">
-        <CommentEdit id={props.id} onEdit={props.onEdit}/>  
+        <CommentEdit id={props.id} editId={props.editId} onEdit={props.onEdit}/>  
         <CommentDelete id={props.id} onDelete={props.onDelete}/>  
       </div>
     </div>
@@ -54,12 +105,20 @@ const CommentContainer = (props) => {
 
 class CommentList extends Component {
 
+  state = {
+    edit: false,
+    editId: ''
+  }
+
   onDelete = (id) => {
     this.props.deleteComment(id)
   }
 
   onEdit = (id) => {
-    console.log('edit')
+    this.setState({
+      edit: !this.state.edit,
+      editId: id
+    })
   }
 
   render() {
@@ -74,6 +133,7 @@ class CommentList extends Component {
           <CommentContainer
             onDelete={this.onDelete}
             onEdit={this.onEdit}
+            editId={this.state.editId}
             id={comment.id}
             body={comment.body}/>
         </li>
