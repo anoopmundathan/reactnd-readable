@@ -34,6 +34,7 @@
 
 .Edit,
 .Delete {
+  width: 50%;
 }
 
 input[type="button"] {
@@ -66,10 +67,19 @@ input[type="button"] {
   .PostDetail {
     width: 65vw;
   }
+  .Edit,
+  .Delete {
+    width: 30%;
+  }
 }
 
 @media screen and (min-width: 900px) {
   .PostDetail {
     width: 50vw;
+  }
+
+  .Edit,
+  .Delete {
+    width: 20%;
   }
 }
