@@ -21,6 +21,12 @@ class CommentBody extends Component {
   }
 
   render() {
+
+  <div className="Comment-Edit-Delete">
+    <CommentEdit id={props.id} editId={props.editId} onEdit={props.onEdit}/>  
+    <CommentDelete id={props.id} onDelete={props.onDelete}/>  
+  </div>
+
     if(this.props.editId === this.props.id) {
       return(
         <div className="Comment-Body">
@@ -33,7 +39,7 @@ class CommentBody extends Component {
     } else {
       return(
         <div className="Comment-Body">
-          {this.props.body}
+          {this.state.comment}
         </div>
       )
     }
@@ -95,10 +101,6 @@ const CommentContainer = (props) => {
   return(
     <div className="Comment-Container">
       <CommentBody id={props.id} editId={props.editId} body={props.body}/>
-      <div className="Comment-Edit-Delete">
-        <CommentEdit id={props.id} editId={props.editId} onEdit={props.onEdit}/>  
-        <CommentDelete id={props.id} onDelete={props.onDelete}/>  
-      </div>
     </div>
   )
 }
