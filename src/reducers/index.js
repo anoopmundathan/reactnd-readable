@@ -28,6 +28,22 @@ const post = (state = { post: {} }, action) => {
           ...comments.slice(indexComment + 1)]
         }
       }
+    case 'EDIT_COMMENT':
+      const editComments = [...state.post.comments]
+      const indexEditComment = editComments.findIndex(comment => comment.id === action.id)
+      const { body, timestamp } = action.comment
+      const newCommentToEdit = Object.assign({}, editComments[indexEditComment], { 
+        body,
+        timestamp
+      })
+      return {
+        ...state, 
+        post: {
+          ...state.post, 
+          comments: [...editComments.slice(0, indexEditComment),
+          newCommentToEdit, ...editComments.slice(indexEditComment + 1)]
+        }
+      }
     default: 
       return state
   }
