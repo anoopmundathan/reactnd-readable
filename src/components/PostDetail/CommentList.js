@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Comment from './Comment'
 import { 
   deleteCommentAction,
   editCommentAction
@@ -53,71 +54,6 @@ class CommentDelete extends Component {
   }
 }
 
-class CommentBody extends Component {
-  state = {
-    comment: ''
-  }
-
-  onEdit = (id, editId) => {
-    this.props.onEdit(id, editId, this.state.comment)
-  }
-
-  onDelete = (id) => {
-    this.props.onDelete(id)
-  }
-
-  componentDidMount() {
-    const { body } = this.props
-    this.setState({
-      comment: body
-    })
-  }
-
-  onChangeComment = (e) => {
-    this.setState({
-      comment: e.target.value
-    })
-  }
-
-  render() {
-    if(this.props.editId === this.props.id) {
-      return(
-        <div className="Comment-Body">
-          <input
-            onChange={this.onChangeComment} 
-            value={this.state.comment}
-            type="text"/>
-          <div className="Comment-Edit-Delete">
-            <CommentEdit 
-              id={this.props.id} 
-              edit={this.props.edit}
-              editId={this.props.editId} 
-              onEdit={this.onEdit}/>  
-            <CommentDelete 
-              id={this.props.id} 
-              onDelete={this.onDelete}/>
-          </div>
-        </div>
-      )
-    } else {
-      return(
-        <div className="Comment-Body">
-          {this.state.comment}
-          <div className="Comment-Edit-Delete">
-            <CommentEdit 
-              id={this.props.id} 
-              editId={this.props.editId} 
-              onEdit={this.props.onEdit}/>  
-            <CommentDelete 
-              id={this.props.id} 
-              onDelete={this.props.onDelete}/>
-          </div>
-        </div>
-      )
-    }
-  }
-}
-
 class CommentList extends Component {
 
   state = {
@@ -150,12 +86,11 @@ class CommentList extends Component {
     if (this.props.comments) {
       commentList = this.props.comments.map(comment => (
         <li 
-          className="Comment"
           key={comment.id}>
           <div className="Comment-Container">
             <div className="Comment-Vote">
             </div>
-            <CommentBody 
+            <Comment 
               onDelete={this.onDelete}
               onEdit={this.onEdit}
               editId={this.state.editId}
