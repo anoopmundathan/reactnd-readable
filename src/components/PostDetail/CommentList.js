@@ -118,15 +118,6 @@ class CommentBody extends Component {
   }
 }
 
-
-const CommentContainer = (props) => {
-  return(
-    <div className="Comment-Container">
-      <CommentBody {...props} />
-    </div>
-  )
-}
-
 class CommentList extends Component {
 
   state = {
@@ -161,12 +152,16 @@ class CommentList extends Component {
         <li 
           className="Comment"
           key={comment.id}>
-          <CommentContainer
-            onDelete={this.onDelete}
-            onEdit={this.onEdit}
-            editId={this.state.editId}
-            id={comment.id}
-            body={comment.body}/>
+          <div className="Comment-Container">
+            <div className="Comment-Vote">
+            </div>
+            <CommentBody 
+              onDelete={this.onDelete}
+              onEdit={this.onEdit}
+              editId={this.state.editId}
+              id={comment.id}
+              body={comment.body}/>
+          </div>  
         </li>
       ))
     }

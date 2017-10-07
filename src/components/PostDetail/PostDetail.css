@@ -4,14 +4,6 @@
   padding-top: 2em;
 }
 
-.PostInfo {
-
-}
-
-.CommentForm {
-
-}
-
 .CommentList {
   width: 100%;
   margin: 20px 0px;
@@ -19,12 +11,18 @@
 
 .Comment-Container {
   width: 100%;
+  margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
 }
 
+.Comment-Vote {
+  width: 15%;
+  background: red;
+}
+
 .Comment-Body {
-  width: 100%;
+  width: 85%;
 }
 
 .Comment-Edit-Delete {
@@ -71,6 +69,12 @@ input[type="button"] {
   .Delete {
     width: 30%;
   }
+  .Comment-Vote {
+    width: 10%;
+  }
+  .Comment-Body {
+    width: 90%;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -81,5 +85,12 @@ input[type="button"] {
   .Edit,
   .Delete {
     width: 20%;
+  }
+
+  .Comment-Vote {
+    width: 5%;
+  }
+  .Comment-Body {
+    width: 95%;
   }
 }
