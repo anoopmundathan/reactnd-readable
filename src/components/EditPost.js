@@ -73,7 +73,6 @@ class EditPost extends Component {
 
   render() {
     const { categories } = this.props.categories
-    console.log(this.props.post)
     const categoryList = categories.map(category => {
       return (
         <option key={category.name} value={category.name}>

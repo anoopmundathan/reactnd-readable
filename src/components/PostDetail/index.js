@@ -51,12 +51,10 @@ class PostDetail extends Component {
     return(
       <div className="PostDetail">
         <PostInfo post={post} />
-        <hr/>
         <CommentForm
           txtComment={this.state.txtComment}
           onCommentSubmit={this.onCommentSubmit}
           onInputChange={this.onInputChange} />
-        <hr/>
         <CommentList comments={comments} />
       </div>
     )

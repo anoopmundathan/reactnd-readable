@@ -4,6 +4,42 @@
   padding-top: 2em;
 }
 
+.Post-Info-Vote {
+  width: 30%;
+  margin: 20px auto;
+}
+
+.Post-Info-Container {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.Post-Info-Title h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.Post-Info-Category,
+.Post-Info-Time-Author span {
+  font-size: .9em;
+  color: rgb(131, 127, 127);
+}
+
+.Post-Info-Body {
+  margin-top: 20px;
+}
+.Post-Info-Body p {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 1.3em;
+}
+
+.Post-Info-Category {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .CommentList {
   width: 100%;
   margin: 20px 0px;
@@ -68,6 +104,19 @@ input[type="button"] {
 }
 
 @media screen and (min-width: 600px) {
+
+  .Post-Info {
+    display: flex;
+  }
+
+  .Post-Info-Vote {
+    width: 10%;
+  }
+
+  .Post-Info-Container {
+    width: 90%;
+  }
+  
   .PostDetail {
     width: 65vw;
   }
