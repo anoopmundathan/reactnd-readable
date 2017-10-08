@@ -19,7 +19,7 @@ class CommentEdit extends Component {
     }
     
     return(
-      <div className="Edit">
+      <div className="Comment-Edit">
         <input 
           onClick={this.onEdit}
           type="button" 

@@ -9,7 +9,7 @@ class CommentDelete extends Component {
 
   render() {
     return(
-      <div className="Delete">
+      <div className="Comment-Delete">
         <input
           onClick={this.onDelete} 
           type="button" 

@@ -1,0 +1,37 @@
+.Vote {
+  width: 50px;
+  height: 50px;
+}
+
+.Up {
+  width: 100%;
+  height: 50%;
+  width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #CAC6C6;
+}
+
+.Up:hover {
+  border-bottom: 20px solid #60D460;
+}
+
+.Score {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.Down {
+  width: 100%;
+  height: 50%;
+  width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #CAC6C6;
+}
+
+.Down:hover {
+  border-top: 20px solid #FA4D6D;
+}

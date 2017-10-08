@@ -9,30 +9,36 @@
   margin: 20px 0px;
 }
 
+.Comment {
+  width: 100%;
+}
+
 .Comment-Container {
   width: 100%;
-  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
-  flex-wrap: wrap;
 }
 
-.Comment-Vote {
-  width: 15%;
-  background: red;
-}
-
-.Comment {
-  width: 85%;
-}
-
-.Comment-Edit-Delete {
+.Comment-Body {
   width: 100%;
+  margin-left: 10px;
+}
+
+.Edit-Delete {
+  margin-top: 10px;
   display: flex;
 }
 
-.Edit,
-.Delete {
+.Comment-Edit,
+.Comment-Delete {
   width: 50%;
+}
+
+.Comment-Delete {
+  margin-left: 10px;
 }
 
 input[type="button"] {
@@ -65,13 +71,12 @@ input[type="button"] {
   .PostDetail {
     width: 65vw;
   }
-  .Edit,
-  .Delete {
+
+  .Comment-Edit,
+  .Comment-Delete {
     width: 30%;
   }
-  .Comment-Vote {
-    width: 10%;
-  }
+  
   .Comment {
     width: 90%;
   }
@@ -82,14 +87,11 @@ input[type="button"] {
     width: 50vw;
   }
 
-  .Edit,
-  .Delete {
+  .Comment-Edit,
+  .Comment-Delete {
     width: 20%;
   }
 
-  .Comment-Vote {
-    width: 5%;
-  }
   .Comment {
     width: 95%;
   }

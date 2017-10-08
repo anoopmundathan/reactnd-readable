@@ -3,7 +3,7 @@ import React from 'react'
 export const PostInfo = (props) => {
   const { author, body, category, title, voteScore, timestamp } = props.post
   return(
-    <div className="PostInfo">
+    <div className="Post-Info">
       <h3>{title}</h3>
       <p>{body}</p>
       <p>Posted on {timestamp} by {author}</p>

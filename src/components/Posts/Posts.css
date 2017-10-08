@@ -7,10 +7,21 @@
 
 /* Post component */
 .Post {
-  padding-top: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
 }
 
-.Post-Info {
+.Title-PostInfo-Container {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.Title-PostInfo {
+  margin-left: 10px;
+}
+
+.PostInfo {
   display: flex;
   font-size: .9em;
   color: #8A8585;
@@ -26,33 +37,9 @@
 }
 
 .Total-Comments,
-.Points,
-.Vote,
 .Edit,
 .Delete {
   margin: 0 6px;
-}
-
-.Vote {
-  width: 40px;
-  display: flex;
-  padding-top: 2px;
-}
-
-.Up {
-  width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid #CAC6C6;
-}
-
-.Down {
-  width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid #CAC6C6;
 }
 
 .Author {

@@ -34,27 +34,31 @@ class Comment extends Component {
     if(this.props.editId === this.props.id) {
       return(
         <div className="Comment-Body">
-          <input
-            onChange={this.onChangeComment} 
-            value={this.state.comment}
-            type="text"/>
-          <div className="Comment-Edit-Delete">
+          <div className="Body">
+            <input
+              onChange={this.onChangeComment} 
+              value={this.state.comment}
+              type="text" />
+          </div>
+          <div className="Edit-Delete">
             <CommentEdit 
               id={this.props.id} 
               edit={this.props.edit}
               editId={this.props.editId} 
-              onEdit={this.onEdit}/>  
+              onEdit={this.onEdit} />  
             <CommentDelete 
               id={this.props.id} 
-              onDelete={this.onDelete}/>
+              onDelete={this.onDelete} />
           </div>
         </div>
       )
     } else {
       return(
         <div className="Comment-Body">
-          {this.state.comment}
-          <div className="Comment-Edit-Delete">
+          <div className="Body">
+            {this.state.comment}
+          </div>
+          <div className="Edit-Delete">
             <CommentEdit 
               id={this.props.id} 
               editId={this.props.editId} 

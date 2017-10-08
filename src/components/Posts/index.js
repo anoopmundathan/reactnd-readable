@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts, deletePosts } from '../../actions'
-import { Vote } from './Vote'
 import Post from './Post'
 import SortBy from './SortBy'
 
@@ -27,7 +26,7 @@ class Posts extends Component {
     
     let postList
 
-    // TODO - write in better way - DRY principle
+    // TODO - write this in better way - DRY principle
     if (filteredPosts.length > 0) {
       if(this.props.sort === 'popular') {
         postList = filteredPosts.sort((a, b) => {

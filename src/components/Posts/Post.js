@@ -6,11 +6,10 @@ import {
   downVoteAction
  } from '../../actions'
 
+import Vote from '../Vote/'
 import { Title } from './Title'
 import { Author } from './Author'
 import { Count } from './Count'
-import { Points } from './Points'
-import { Vote } from './Vote'
 import { Edit } from './Edit'
 import { Delete } from './Delete'
 
@@ -55,23 +54,28 @@ class Post extends Component {
                   : '&'
     return(  
       <div className="Post">
-        <Title 
-          post={this.props.post} />
-        <div className="Post-Info">
-          <Author author={author} />
-          <Points point={score} />
-          <Vote 
-            id={id} 
-            onClickDownVote={this.onClickDownVote}
-            onClickUpVote={this.onClickUpVote} />
-          <Edit id={id} />
-          <Delete id={id} onDeleteClick={this.onDeleteClick}/>
-          <Count count={count} />
+        <Vote 
+          id={id}
+          score={score}
+          onClickDownVote={this.onClickDownVote}
+          onClickUpVote={this.onClickUpVote} />
+        <div className="Title-PostInfo-Container">
+          <div className="Title-PostInfo">
+            <Title 
+              post={this.props.post} />
+            <div className="PostInfo">
+              <Author author={author} />
+              <Edit id={id} />
+              <Delete id={id} onDeleteClick={this.onDeleteClick}/>
+              <Count count={count} />
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
+
 const mapStateToProps = ({ posts }) => {
   return {
     posts: posts.posts

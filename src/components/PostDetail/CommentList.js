@@ -1,58 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Comment from './Comment'
+import Vote from '../Vote/'
+
 import { 
   deleteCommentAction,
   editCommentAction
  } from '../../actions'
 
-class CommentEdit extends Component {
-
-  onEdit = () => {
-    if(this.props.editId) {
-      this.props.onEdit(null, this.props.editId)
-    } else {
-      this.props.onEdit(this.props.id, null)
-    }
-  }
-  
-  render() {
-    let buttonValue
-    if (this.props.editId === this.props.id) {
-      buttonValue = this.props.editId ? 'Save' : 'Edit'
-    } else {
-      buttonValue = 'Edit'
-    }
-
-    return(
-      <div className="Edit">
-        <input 
-          onClick={this.onEdit}
-          type="button" 
-          value={buttonValue} />
-      </div>
-    )
-  }
-  }
-
-class CommentDelete extends Component {
-  
-  onDelete = () => {
-    const id = this.props.id
-    this.props.onDelete(id) 
-  }
-
-  render() {
-    return(
-      <div className="Delete">
-      <input
-        onClick={this.onDelete} 
-        type="button" 
-        value="Delete"/>
-    </div>
-    )
-  }
-}
 
 class CommentList extends Component {
 
@@ -79,6 +34,14 @@ class CommentList extends Component {
     })
   }
 
+  onClickUpVote = () => {
+
+  }
+
+  onClickDownVote = () => {
+
+  }
+
   render() {
 
     let commentList = null
@@ -88,8 +51,11 @@ class CommentList extends Component {
         <li 
           key={comment.id}>
           <div className="Comment-Container">
-            <div className="Comment-Vote">
-            </div>
+            <Vote 
+              id={1}
+              score={10}
+              onClickUpVote={this.onClickUpVote} 
+              onClickDownVote={this.onClickDownVote} />
             <Comment 
               onDelete={this.onDelete}
               onEdit={this.onEdit}
