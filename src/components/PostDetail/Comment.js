@@ -35,7 +35,8 @@ class Comment extends Component {
       return(
         <div className="Comment-Body">
           <div className="Body">
-            <input
+            <textarea
+              rows="5" 
               onChange={this.onChangeComment} 
               value={this.state.comment}
               type="text" />
