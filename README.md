@@ -21,7 +21,7 @@ npm run dev
 ```
 http://localhost:3000
 ```
-## Pre-requiste
+## Prerequisite
 Backend REST API Server should be up and running - Please follow below steps in another terminal window
 
 ### Setup
