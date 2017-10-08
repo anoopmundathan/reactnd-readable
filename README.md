@@ -15,11 +15,8 @@ $ npm i
 ```
 ### Run
 ```
-npm run dev
-```
-### View
-```
-http://localhost:3000
+$ npm run dev
+This will open app in http://localhost:3000
 ```
 ## Prerequisite
 Backend REST API Server should be up and running - Please follow below steps in another terminal window
@@ -36,4 +33,5 @@ $ npm i
 ### Run API Server
 ```
 $ node server.js
+Server listening on port 5001, Ctrl+C to stop
 ```
