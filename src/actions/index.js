@@ -11,6 +11,7 @@ import {
   addComment,
   deleteComment,
   editComment,
+  voteComment
 } from '../utils/ReadableAPI'
 
 const GET_POSTS = 'GET_POSTS'
@@ -27,6 +28,8 @@ const CHANGE_SORT = 'CHANGE_SORT'
 const ADD_COMMENT = 'ADD_COMMENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
 const EDIT_COMMENT = 'EDIT_COMMENT'
+const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
+const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 
 export const fetchPosts = () => dispatch => (
   getAllPosts()
@@ -170,3 +173,13 @@ export const editCommentAction = (id, comment) => dispatch => {
       })
     })
 }
+
+export const upVoteCommentAction = (id) => dispatch => (
+  voteComment(id, "upVote")
+    .then(() => {
+      dispatch({
+        type: UPVOTE_COMMENT,
+        id
+      })
+    })
+)

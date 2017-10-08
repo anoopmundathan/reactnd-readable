@@ -5,7 +5,8 @@ import Vote from '../Vote/'
 
 import { 
   deleteCommentAction,
-  editCommentAction
+  editCommentAction,
+  upVoteCommentAction
  } from '../../actions'
 
 
@@ -13,7 +14,8 @@ class CommentList extends Component {
 
   state = {
     edit: false,
-    editId: ''
+    editId: '',
+    score: 0
   }
 
   onDelete = (id) => {
@@ -34,12 +36,12 @@ class CommentList extends Component {
     })
   }
 
-  onClickUpVote = () => {
-
+  onClickUpVote = (id) => {
+    this.props.upVoteComment(id)
   }
 
-  onClickDownVote = () => {
-
+  onClickDownVote = (id) => {
+    console.log(id)
   }
 
   render() {
@@ -52,8 +54,8 @@ class CommentList extends Component {
           key={comment.id}>
           <div className="Comment-Container">
             <Vote 
-              id={1}
-              score={10}
+              id={comment.id}
+              score={comment.voteScore}
               onClickUpVote={this.onClickUpVote} 
               onClickDownVote={this.onClickDownVote} />
             <Comment 
@@ -80,7 +82,8 @@ class CommentList extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteComment: (id) => dispatch(deleteCommentAction(id)),
-    editComment: (id, comment) => dispatch(editCommentAction(id, comment))
+    editComment: (id, comment) => dispatch(editCommentAction(id, comment)),
+    upVoteComment: (id) => dispatch(upVoteCommentAction(id))
   }
 }
 
