@@ -176,10 +176,24 @@ export const editCommentAction = (id, comment) => dispatch => {
 
 export const upVoteCommentAction = (id) => dispatch => (
   voteComment(id, "upVote")
-    .then(() => {
+    .then((comment) => {
       dispatch({
         type: UPVOTE_COMMENT,
-        id
+        id: comment.id,
+        parentId: comment.parentId,
+        voteScore: comment.voteScore
+      })
+    })
+)
+
+export const downVoteCommentAction = (id) => dispatch => (
+  voteComment(id, "downVote")
+    .then((comment) => {
+      dispatch({
+        type: DOWNVOTE_COMMENT,
+        id: comment.id,
+        parentId: comment.parentId,
+        voteScore: comment.voteScore
       })
     })
 )

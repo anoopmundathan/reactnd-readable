@@ -138,4 +138,5 @@ export const voteComment = (id, option) => {
       option: option
     })
   })
+  .then(data => data.json())
 }
