@@ -95,19 +95,11 @@
   .Header h1 {
     font-size: 5.5vw;
   }
-  .PostDetail {
-    width: 65vw;
-  }
-
 }
 
 @media screen and (min-width: 900px) {
   .Header h1 {
     font-size: 3.5vw;
-  }
-
-  .PostDetail {
-    width: 50vw;
   }
 
 }

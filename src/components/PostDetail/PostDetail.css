@@ -1,16 +1,14 @@
 .PostDetail {
-  width: 70vw;
-  margin: 0 auto;
+  width: 90vw;
+  margin: 20px auto;
   padding-top: 2em;
 }
 
-.Post-Info-Vote {
-  width: 30%;
-  margin: 20px auto;
+.Post-Info {
+  display: flex;
 }
 
 .Post-Info-Container {
-  margin-top: 30px;
   margin-left: 10px;
 }
 
@@ -28,6 +26,7 @@
 .Post-Info-Body {
   margin-top: 20px;
 }
+
 .Post-Info-Body p {
   margin: 0;
   padding-top: 10px;
@@ -35,9 +34,14 @@
   line-height: 1.3em;
 }
 
-.Post-Info-Category {
+.Post-Info-Category-Container {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.Post-Info-Edit,
+.Post-Info-Delete {
+  text-align: right;
 }
 
 .CommentList {
@@ -105,8 +109,8 @@ input[type="button"] {
 
 @media screen and (min-width: 600px) {
 
-  .Post-Info {
-    display: flex;
+  .PostDetail {
+    width: 70vw;
   }
 
   .Post-Info-Vote {
@@ -117,10 +121,6 @@ input[type="button"] {
     width: 90%;
   }
   
-  .PostDetail {
-    width: 65vw;
-  }
-
   .Comment-Edit,
   .Comment-Delete {
     width: 30%;
@@ -133,7 +133,7 @@ input[type="button"] {
 
 @media screen and (min-width: 900px) {
   .PostDetail {
-    width: 50vw;
+    width: 60vw;
   }
 
   .Comment-Edit,

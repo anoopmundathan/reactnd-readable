@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost, addCommentAction } from '../../actions'
 import uuidv1 from 'uuid/v1'
-import { PostInfo } from './PostInfo'
+import PostInfo from './PostInfo'
 import { CommentForm } from './CommentForm'
 import CommentList from './CommentList'
 

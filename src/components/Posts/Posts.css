@@ -5,6 +5,10 @@
   padding-top: 3em;
 }
 
+.SortBy {
+  margin-bottom: 30px;
+}
+
 /* Post component */
 .Post {
   padding-top: 1em;
