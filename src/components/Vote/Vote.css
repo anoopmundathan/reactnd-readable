@@ -10,7 +10,7 @@
 	height: 0;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
-	border-bottom: 20px solid #CAC6C6;
+	border-bottom: 20px solid #FA4D6D;
 }
 
 .Up:hover {
@@ -29,7 +29,7 @@
 	height: 0;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
-	border-top: 20px solid #CAC6C6;
+	border-top: 20px solid #FA4D6D;
 }
 
 .Down:hover {

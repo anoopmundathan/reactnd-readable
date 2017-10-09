@@ -65,9 +65,9 @@ class Post extends Component {
               post={this.props.post} />
             <div className="PostInfo">
               <Author author={author} />
+              <Count count={count} />
               <Edit id={id} />
               <Delete id={id} onDeleteClick={this.onDeleteClick}/>
-              <Count count={count} />
             </div>
           </div>
         </div>

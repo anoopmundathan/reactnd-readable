@@ -5,7 +5,7 @@ export class Count extends Component {
     const { count } = this.props
     return(
       <div className="Total-Comments">
-        {count}
+      Comments: {count}
       </div>
     )
   }

@@ -57,7 +57,6 @@
 
 .Post-Info-Edit,
 .Post-Info-Delete {
-  border-radius: 4px;
   text-align: center;
   background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
   color: white;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const Edit = (props) => {
   return(
     <div className="Edit">
-      <Link to={`/edit/${props.id}`}>edit</Link>
+      <Link to={`/edit/${props.id}`}>Edit</Link>
     </div>
   )
 }
