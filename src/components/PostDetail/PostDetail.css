@@ -39,9 +39,31 @@
   margin-bottom: 20px;
 }
 
+.Post-Info-Edit-Delete-Container {
+  display: flex;
+}
+
+.Post-Info-Edit-Delete-Right {
+  width: 70%;
+}
+
+.Post-Info-Edit-Delete {
+  width: 30%;
+}
+
+.Post-Info-Edit a {
+  color: #fff;
+}
+
 .Post-Info-Edit,
 .Post-Info-Delete {
-  text-align: right;
+  border-radius: 4px;
+  text-align: center;
+  background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .CommentList {
@@ -95,6 +117,7 @@ input[type="button"] {
 }
 
 .Comment-Button {
+  margin-top: 10px;
   background: linear-gradient(10deg, #EE6640 0%, #FA4D6D 100%);
   border: none;
   color: white;
