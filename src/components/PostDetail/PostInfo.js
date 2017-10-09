@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import Vote from '../Vote'
 
 import { 
-  upVoteAction, 
-  downVoteAction
+  upVotePostAction, 
+  downVotePostAction
  } from '../../actions'
 
 class PostInfo extends Component {
@@ -59,8 +59,8 @@ class PostInfo extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    upVote: (id) => dispatch(upVoteAction(id)),
-    downVote: (id) => dispatch(downVoteAction(id))
+    upVote: (id) => dispatch(upVotePostAction(id)),
+    downVote: (id) => dispatch(downVotePostAction(id))
   }
 }
 

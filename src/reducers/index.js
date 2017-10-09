@@ -74,6 +74,14 @@ const post = (state = { post: {} }, action) => {
           newDownScore, ...downVoteComments.slice(indexDownComment + 1)]
         }
       }
+      case 'VOTE_POST':
+        return {
+          ...state, 
+          post: {
+            ...state.post,
+            voteScore: action.voteScore
+          }
+        }
     default: 
       return state
   }

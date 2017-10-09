@@ -24,6 +24,7 @@ const DELETE_POST = 'DELETE_POST'
 const DELETE_POSTS = 'DELETE_POSTS'
 const DOWN_VOTE = 'DOWN_VOTE'
 const UP_VOTE = 'UP_VOTE'
+const VOTE_POST = 'VOTE_POST'
 const CHANGE_SORT = 'CHANGE_SORT'
 const ADD_COMMENT = 'ADD_COMMENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -118,6 +119,27 @@ export const upVoteAction = (id) => dispatch => (
       dispatch({
         type: UP_VOTE,
         id
+      })
+    })
+)
+
+// TODO - This is for single Post - Need to find a better way to do
+export const downVotePostAction = (id) => dispatch => (
+  votePost(id, "downVote")
+    .then((comment) => {
+      dispatch({
+        type: VOTE_POST,
+        voteScore: comment.voteScore
+      })
+    })
+)
+
+export const upVotePostAction = (id) => dispatch => (
+  votePost(id, "upVote")
+    .then((comment) => {
+      dispatch({
+        type: VOTE_POST,
+        voteScore: comment.voteScore
       })
     })
 )

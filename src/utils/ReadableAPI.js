@@ -75,6 +75,7 @@ export const votePost = (id, option) => {
       option: option
     })
   })
+  .then(data => data.json())
 }
 
 // DELETE /posts/:id
