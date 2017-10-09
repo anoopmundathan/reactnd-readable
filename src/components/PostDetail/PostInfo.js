@@ -44,11 +44,17 @@ class PostInfo extends Component {
             <div className="Post-Info-Category">
               <span><b>Category: </b>{category}</span>
             </div>
-            <div className="Post-Info-Edit">
-              <Link to={`/edit/${id}`}>Edit</Link>
-            </div>
-            <div className="Post-Info-Delete">
-              Delete
+            <div className="Post-Info-Edit-Delete-Container">
+              <div className="Post-Info-Edit-Delete-Right">
+              </div>
+              <div className="Post-Info-Edit-Delete">
+                <div className="Post-Info-Edit">
+                  <Link to={`/edit/${id}`}>Edit</Link>
+                </div>
+                <div className="Post-Info-Delete">
+                  Delete
+                </div>
+              </div>
             </div>
           </div>
         </div>
