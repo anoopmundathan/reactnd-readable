@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { fetchPost, fetchCategories, editPostAction } from '../actions'
 
 import './NewPost/NewPost.css'
@@ -13,7 +14,8 @@ class EditPost extends Component {
     body: '',
     category: '',
     notValid: false,
-    success: false
+    success: false,
+    edited: false
   }
 
   componentWillMount() {
@@ -29,7 +31,6 @@ class EditPost extends Component {
           category
         })
       })
-      //this.props.getCategories()  
   }
 
   onTitleChange = (e) => {
@@ -73,6 +74,7 @@ class EditPost extends Component {
 
   render() {
     const { categories } = this.props.categories
+    const { id, category } = this.state
     const categoryList = categories.map(category => {
       return (
         <option key={category.name} value={category.name}>
@@ -85,7 +87,9 @@ class EditPost extends Component {
       <div className="New-Post">
         <div>
           {this.state.success && (
-            <h3>Post is Edited...</h3> 
+            <Redirect 
+              from={`/edit/${category}/${id}`} 
+              to={`/${category}/${id}`}  />
           )}
         </div>
         <div>
