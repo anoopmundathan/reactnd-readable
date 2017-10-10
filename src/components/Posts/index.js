@@ -7,15 +7,25 @@ import SortBy from './SortBy'
 import './Posts.css'
 class Posts extends Component {
 
+  state = {
+    loaded: false
+  }
+
   componentDidMount() {
     if (this.props.posts.length > 0) {
       this.props.deletePosts()
     }
     this.props.getPosts()
+      .then(() => {
+        this.setState({
+          loaded: true
+        })
+      })
   }
 
   render() {
     const { posts, match } = this.props
+    const { loaded } = this.state
     const filteredPosts = posts.filter(post => {
       if(match.params.category) {
         return !post.deleted && post.category === match.params.category
@@ -57,16 +67,20 @@ class Posts extends Component {
         }).map(post => (<li key={post.id}><Post post={post} /></li>))
       }
     } 
-    
     return(
       <div className="Posts">
         <SortBy />
-        {filteredPosts.length > 0
-        ? postList.length > 0 ? (<ul>{postList}</ul>) : (<div>Not Found</div>)
-        : null
-        }
+          {!this.state.loaded && 
+            <p>Loading...</p>
+          }
+          { filteredPosts.length > 0
+            ? postList.length > 0 
+            ? (<ul>{postList}</ul>) 
+            : (<div>Not Found</div>)
+            : (<p>No Posts</p>)
+          }
       </div>
-    )
+    )    
   }
 }
 
