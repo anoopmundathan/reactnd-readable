@@ -9,10 +9,10 @@ const post = (state = { post: {} }, action) => {
         ...state, 
         post: action.post
       }
-    case 'DELETE_POST':
-      console.log(state)
+    case 'REMOVE_POST': 
       return {
-        state
+        ...state, 
+        post: { }
       }
     case 'ADD_COMMENT':
       return {

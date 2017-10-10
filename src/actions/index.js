@@ -21,6 +21,7 @@ const GET_POST_CATEGORY = 'GET_POST_CATEGORY'
 const ADD_NEW_POST = 'ADD_NEW_POST'
 const EDIT_POST = 'EDIT_POST'
 const DELETE_POST = 'DELETE_POST'
+const REMOVE_POST = 'REMOVE_POST'
 const DELETE_POSTS = 'DELETE_POSTS'
 const DOWN_VOTE = 'DOWN_VOTE'
 const UP_VOTE = 'UP_VOTE'
@@ -92,6 +93,16 @@ export const deletePostAction = (id) => dispatch => (
       })
     })
 )
+
+export const removePostAction = (id) => dispatch => {
+  return deletePost(id)
+    .then(() => {
+      dispatch({
+        type: REMOVE_POST,
+        id
+      })
+    })
+}
 
 export const getAllPostsCategoryAction = (category) => dispatch => (
   getAllPostsForCategory(category)

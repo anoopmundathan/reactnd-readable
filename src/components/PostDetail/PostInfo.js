@@ -7,7 +7,7 @@ import Vote from '../Vote'
 import { 
   upVotePostAction, 
   downVotePostAction,
-  deletePostAction
+  removePostAction
  } from '../../actions'
 
 class PostInfo extends Component {
@@ -17,10 +17,12 @@ class PostInfo extends Component {
   }
 
   onDelete = (id) => {
-    this.props.deletePost(id)
-    this.setState({
-      deleted: true
-    })
+    this.props.removePost(id)
+      .then(() => {
+        this.setState({
+          deleted: true
+        })
+      })
   }
 
   onClickDownVote = (id) => {
@@ -86,7 +88,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     upVote: (id) => dispatch(upVotePostAction(id)),
     downVote: (id) => dispatch(downVotePostAction(id)),
-    deletePost: (id) => dispatch(deletePostAction(id))
+    removePost: (id) => dispatch(removePostAction(id))
     
   }
 }
